@@ -1,2 +1,4 @@
-package models.Producto.Categorias;public class Componentes {
+package models.ProductoPackage.Categorias.ComponentesPackage;
+
+public class Componente {
 }

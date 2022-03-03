@@ -1,2 +1,4 @@
-package models.Producto.Categorias.Perifericos;public class Mouse {
+package models.ProductoPackage.Categorias.Perifericos;
+
+public class Mouse {
 }

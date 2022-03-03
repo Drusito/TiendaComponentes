@@ -1,2 +1,4 @@
-package models.Producto.Categorias.Componentes;public class PlacaBase {
+package models.ProductoPackage.Categorias.ComponentesPackage;
+
+public class PlacaBase {
 }

@@ -1,2 +1,4 @@
-package models.Producto.Categorias.ComponentesPackage;public class MemoriaGrafica {
+package models.ProductoPackage.Categorias.ComponentesPackage;
+
+public class MemoriaGrafica {
 }

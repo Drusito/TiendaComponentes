@@ -1,2 +1,4 @@
-package models.ProductoPackage.Categorias.Perifericos;public class Altavoz {
+package models.ProductoPackage.Categorias.Perifericos;
+
+public class Altavoz {
 }

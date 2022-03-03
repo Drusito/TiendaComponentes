@@ -1,2 +1,4 @@
-package models.CarroCompra;public class CarroCompra {
+package models.CarroPackage;
+
+public class CarroCompra {
 }

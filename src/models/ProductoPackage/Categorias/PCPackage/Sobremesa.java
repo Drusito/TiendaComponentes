@@ -1,2 +1,4 @@
-package models.Producto.Categorias.PCPackage;public class Sobremesa {
+package models.ProductoPackage.Categorias.PCPackage;
+
+public class Sobremesa {
 }

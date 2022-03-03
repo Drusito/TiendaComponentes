@@ -1,2 +1,4 @@
-package models.Tienda;public class Tienda {
+package models.Tienda;
+
+public class Tienda {
 }

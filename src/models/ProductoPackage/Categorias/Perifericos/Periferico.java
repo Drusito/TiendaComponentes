@@ -1,2 +1,4 @@
-package models.Producto.Categorias;public class Perifericos {
+package models.ProductoPackage.Categorias.Perifericos;
+
+public class Periferico {
 }
