@@ -1,8 +1,8 @@
 package models.ProductoPackage.Categorias.ComponentesPackage;
 
 public class Procesador extends Componente{
-    protected int numeroDeNucleos;
-    protected float frecuenciaHz;
+    private int numeroDeNucleos;
+    private float frecuenciaHz;
 
     public Procesador(float precio, String descripcion, String marca, int numeroDeNucleos, float frecuenciaHz) {
         super(precio, descripcion, marca);

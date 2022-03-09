@@ -5,11 +5,11 @@ import models.ProductoPackage.Categorias.ComponentesPackage.*;
 import java.util.ArrayList;
 
 public class Portatil extends PC {
-    protected final float pulgadasPantalla;
-    protected boolean ventilacionExtra;
-    protected final boolean tieneHDMI;
-    protected final int puertosUSB;
-    protected final boolean tienePuertoAuriculares;
+    private final float pulgadasPantalla;
+    private boolean ventilacionExtra;
+    private final boolean tieneHDMI;
+    private final int puertosUSB;
+    private final boolean tienePuertoAuriculares;
 
     public Portatil(float precio, String descripcion, String marca, ArrayList<DiscoDuro> discoDuro, MemoriaGrafica memoriaGrafica, PlacaBase placaBase, Procesador procesador, ArrayList<RAM> ram, float pulgadasPantalla, boolean ventilacionExtra, boolean tieneHDMI, int puertosUSB, boolean tienePuertoAuriculares) {
         super(precio, descripcion, marca, discoDuro, memoriaGrafica, placaBase, procesador, ram);

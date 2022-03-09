@@ -8,10 +8,10 @@ import models.ProductoPackage.Categorias.Perifericos.Teclado;
 import java.util.ArrayList;
 
 public class Sobremesa extends PC {
-    protected Pantalla pantalla;
-    protected Teclado teclado;
-    protected Mouse mouse;
-    protected boolean refrigeracionLiquida;
+    private Pantalla pantalla;
+    private Teclado teclado;
+    private Mouse mouse;
+    private boolean refrigeracionLiquida;
 
     public Sobremesa(float precio, String descripcion, String marca, ArrayList<DiscoDuro> discoDuro, MemoriaGrafica memoriaGrafica, PlacaBase placaBase, Procesador procesador, ArrayList<RAM> ram, Pantalla pantalla, Teclado teclado, Mouse mouse, boolean refrigeracionLiquida) {
         super(precio, descripcion, marca, discoDuro, memoriaGrafica, placaBase, procesador, ram);
