@@ -1,7 +1,7 @@
 package models.ProductoPackage.Categorias.ComponentesPackage;
 
 public class MemoriaGrafica extends Componente {
-    private int memoriaDedicadaGB;
+    protected int memoriaDedicadaGB;
 
     public MemoriaGrafica(float precio, String descripcion, String marca, int memoriaDedicadaGB) {
         super(precio, descripcion, marca);

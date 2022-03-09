@@ -1,14 +1,14 @@
 package models.ProductoPackage.Categorias.ComponentesPackage;
 
 public class PlacaBase extends Componente{
-    private int numMaxProcesadores;
-    private int puertosRam;
-    private int puertosDiscoDuro;
-    private boolean aceptaSSD;
-    private int puertosUSB;
-    private int puertosJack;
-    boolean ethernet;
-    boolean wifi;
+    protected int numMaxProcesadores;
+    protected int puertosRam;
+    protected int puertosDiscoDuro;
+    protected boolean aceptaSSD;
+    protected int puertosUSB;
+    protected int puertosJack;
+    protected boolean ethernet;
+    protected boolean wifi;
 
     public PlacaBase(float precio, String descripcion, String marca, int numMaxProcesadores, int puertosRam, int puertosDiscoDuro, boolean aceptaSSD, int puertosUSB, int puertosJack, boolean ethernet, boolean wifi) {
         super(precio, descripcion, marca);
