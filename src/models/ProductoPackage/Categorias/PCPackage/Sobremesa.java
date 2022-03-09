@@ -57,4 +57,23 @@ public class Sobremesa extends PC {
     public void setRefrigeracionLiquida(boolean refrigeracionLiquida) {
         this.refrigeracionLiquida = refrigeracionLiquida;
     }
+
+    @Override
+    public String toString() {
+        return "Sobremesa{" +
+                "discoDuro=" + discoDuro +
+                ", memoriaGrafica=" + memoriaGrafica +
+                ", placaBase=" + placaBase +
+                ", procesador=" + procesador +
+                ", ram=" + ram +
+                ", pantalla=" + pantalla +
+                ", teclado=" + teclado +
+                ", mouse=" + mouse +
+                ", refrigeracionLiquida=" + refrigeracionLiquida +
+                ", id=" + id +
+                ", precio=" + precio +
+                ", descripcion='" + descripcion + '\'' +
+                ", marca='" + marca + '\'' +
+                '}';
+    }
 }
