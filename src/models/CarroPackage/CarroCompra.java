@@ -5,12 +5,12 @@ import java.util.ArrayList;
 import models.ProductoPackage.Producto;
 
 public class CarroCompra {
-    public static CarroCompra carrito = new CarroCompra();
-
     private int id;
     private ArrayList<Producto> carro;
     private static int contador = 1;
     private static ArrayList<CarroCompra> compras = new ArrayList<>();
+    
+    public static CarroCompra carrito = new CarroCompra();
     /**
      * Constructor
      */
