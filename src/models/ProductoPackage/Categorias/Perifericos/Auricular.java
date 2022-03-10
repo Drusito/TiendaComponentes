@@ -1,60 +1,51 @@
 package models.ProductoPackage.Categorias.Perifericos;
 
 public class Auricular extends Periferico{
+    private final boolean tieneMicro;
+    private final boolean tieneConexionUSB;
 
-    protected int maxVolum;
-    protected boolean tieneMicro;
-    protected boolean lucesRGB;
-    protected boolean insonorizacion;
-
-    public Auricular(float precio, String descripcion, String marca, boolean esInalambrico, int maxVolum, boolean tieneMicro, boolean lucesRGB, boolean insonorizacion) {
+    /**
+     * Constructor para crear objetos de la clase auricular
+     * @param precio float con el precio del auricular
+     * @param descripcion string con la descripción del auricular
+     * @param marca string con la marca del auricular
+     * @param esInalambrico boolean de si el auricular es inalámbrico (true) o no (false)
+     * @param tieneMicro boolean de si el auricular tiene micro integrado (true) o no (false)
+     * @param tieneConexionUSB boolean de si el auricular tiene conexión USB (true) o no (false)
+     */
+    public Auricular(float precio, String descripcion, String marca, boolean esInalambrico, boolean tieneMicro, boolean tieneConexionUSB) {
         super(precio, descripcion, marca, esInalambrico);
-        this.maxVolum = maxVolum;
         this.tieneMicro = tieneMicro;
-        this.lucesRGB = lucesRGB;
-        this.insonorizacion = insonorizacion;
+        this.tieneConexionUSB = tieneConexionUSB;
     }
 
-    public int getMaxVolum() {
-        return maxVolum;
-    }
+    //GETTERS
 
-    public boolean isTieneMicro() {
+    /**
+     * Método para saber si el auricular tiene micrófono integrado o no
+     * @return boolean true (si tiene micro) / false (si no tiene)
+     */
+    public boolean tieneMicro() {
         return tieneMicro;
     }
 
-    public boolean isLucesRGB() {
-        return lucesRGB;
+    /**
+     * Método para saber si el auricular tiene conexión USB o no
+     * @return boolean true (si tiene conexión USB) / false (si no tiene)
+     */
+    public boolean tieneConexionUSB() {
+        return tieneConexionUSB;
     }
 
-    public boolean isInsonorizacion() {
-        return insonorizacion;
-    }
-
-
-    public void setMaxVolum(int maxVolum) {
-        this.maxVolum = maxVolum;
-    }
-
-    public void setTieneMicro(boolean tieneMicro) {
-        this.tieneMicro = tieneMicro;
-    }
-
-    public void setLucesRGB(boolean lucesRGB) {
-        this.lucesRGB = lucesRGB;
-    }
-
-    public void setInsonorizacion(boolean insonorizacion) {
-        this.insonorizacion = insonorizacion;
-    }
-
+    /**
+     * Método para mostrar los valores de los atributos del auricular
+     * @return string con los valores de los atributos del auricular
+     */
     @Override
     public String toString() {
         return "Auricular{" +
-                "maxVolum=" + maxVolum +
-                ", tieneMicro=" + tieneMicro +
-                ", lucesRGB=" + lucesRGB +
-                ", insonorizacion=" + insonorizacion +
+                "tieneMicro=" + tieneMicro +
+                ", tieneConexionUSB=" + tieneConexionUSB +
                 ", esInalambrico=" + esInalambrico +
                 ", id=" + id +
                 ", precio=" + precio +

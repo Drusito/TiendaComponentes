@@ -1,78 +1,87 @@
 package models.ProductoPackage.Categorias.ComponentesPackage;
 
 public class PlacaBase extends Componente{
-    protected String socket;
-    protected String factorForma;
-    protected String chipset;
-    protected String memoriaSoportada;
-    protected String maximaRAM;
-    protected int conectoresUSB;
-    protected int puertosM2;
+    private int numMaxProcesadores;
+    private int puertosRam;
+    private int puertosDiscoDuro;
+    private boolean aceptaSSD;
+    private int puertosUSB;
+    private int puertosJack;
+    private boolean ethernet;
+    private boolean wifi;
 
-    public PlacaBase(float precio, String descripcion, String marca, String socket, String factorForma, String chipset, String memoriaSoportada, String maximaRAM, int conectoresUSB, int puertosM2) {
+    public PlacaBase(float precio, String descripcion, String marca, int numMaxProcesadores, int puertosRam, int puertosDiscoDuro, boolean aceptaSSD, int puertosUSB, int puertosJack, boolean ethernet, boolean wifi) {
         super(precio, descripcion, marca);
-        this.socket = socket;
-        this.factorForma = factorForma;
-        this.chipset = chipset;
-        this.memoriaSoportada = memoriaSoportada;
-        this.maximaRAM = maximaRAM;
-        this.conectoresUSB = conectoresUSB;
-        this.puertosM2 = puertosM2;
+        this.numMaxProcesadores = numMaxProcesadores;
+        this.puertosRam = puertosRam;
+        this.puertosDiscoDuro = puertosDiscoDuro;
+        this.aceptaSSD = aceptaSSD;
+        this.puertosUSB = puertosUSB;
+        this.puertosJack = puertosJack;
+        this.ethernet = ethernet;
+        this.wifi = wifi;
     }
 
-    public String getSocket() {return socket;}
-
-    public String getFactorForma() {return factorForma;}
-
-    public String getChipset() {return chipset;}
-
-    public String getMemoriaSoportada() {return memoriaSoportada;}
-
-    public String getMaximaRAM() {return maximaRAM;}
-
-    public int getConectoresUSB() {return conectoresUSB;}
-
-    public int getPuertosM2() {return puertosM2;}
-
-
-    public void setSocket(String socket) {
-        this.socket = socket;
+    /**
+     * Getters
+     */
+    public int getNumMaxProcesadores() {
+        return numMaxProcesadores;
     }
 
-    public void setFactorForma(String factorForma) {
-        this.factorForma = factorForma;
+    public int getPuertosRam() {
+        return puertosRam;
     }
 
-    public void setChipset(String chipset) {
-        this.chipset = chipset;
+    public int getPuertosDiscoDuro() {
+        return puertosDiscoDuro;
     }
 
-    public void setMemoriaSoportada(String memoriaSoportada) {
-        this.memoriaSoportada = memoriaSoportada;
+    public boolean isAceptaSSD() {
+        return aceptaSSD;
     }
 
-    public void setMaximaRAM(String maximaRAM) {
-        this.maximaRAM = maximaRAM;
+    public int getPuertosUSB() {
+        return puertosUSB;
     }
 
-    public void setConectoresUSB(int conectoresUSB) {
-        this.conectoresUSB = conectoresUSB;
+    public int getPuertosJack() {
+        return puertosJack;
     }
 
-    public void setPuertosM2(int puertosM2) {
-        this.puertosM2 = puertosM2;
+    public boolean isEthernet() {
+        return ethernet;
+    }
+
+    public boolean isWifi() {
+        return wifi;
+    }
+    /**
+     * Setters
+     */
+    public void setEthernet(boolean ethernet) {
+        this.ethernet = ethernet;
+    }
+
+    public void setWifi(boolean wifi) {
+        this.wifi = wifi;
     }
 
     @Override
     public String toString() {
         return "PlacaBase{" +
-                "socket='" + socket + '\'' +
-                ", factorForma='" + factorForma + '\'' +
-                ", chipset='" + chipset + '\'' +
-                ", memoriaSoportada='" + memoriaSoportada + '\'' +
-                ", maximaRAM='" + maximaRAM + '\'' +
-                ", conectoresUSB=" + conectoresUSB +
-                ", puertosM2=" + puertosM2 +
+                "numMaxProcesadores=" + numMaxProcesadores +
+                ", puertosRam=" + puertosRam +
+                ", puertosDiscoDuro=" + puertosDiscoDuro +
+                ", aceptaSSD=" + aceptaSSD +
+                ", puertosUSB=" + puertosUSB +
+                ", puertosJack=" + puertosJack +
+                ", ethernet=" + ethernet +
+                ", wifi=" + wifi +
+                ", id=" + id +
+                ", precio=" + precio +
+                ", descripcion='" + descripcion + '\'' +
+                ", marca='" + marca + '\'' +
                 '}';
     }
 }

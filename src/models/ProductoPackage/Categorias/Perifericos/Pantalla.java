@@ -1,59 +1,87 @@
 package models.ProductoPackage.Categorias.Perifericos;
 
 public class Pantalla extends Periferico{
+    private final float pulgadasPantalla;
+    private final int resolucionAnchura;
+    private final int resolucionAltura;
+    private final int bitsColor;
+    private final boolean esAntireflectante;
 
-    protected int pulgada;
-    protected String tipoPanel;
-    protected int tiempoRespuesta;
-    protected int tasaRefresco;
-
-    public Pantalla(float precio, String descripcion, String marca, boolean esInalambrico, int pulgada, String tipoPanel, int tiempoRespuesta, int tasaRefresco) {
+    /**
+     * Constructor para crear objetos de la clase pantalla
+     * @param precio float con el precio de la pantalla
+     * @param descripcion string con la descripción de la pantalla
+     * @param marca string con la marca de la pantalla
+     * @param esInalambrico boolean de si la pantalla es inalámbrica (true) o no (false)
+     * @param pulgadasPantalla int con las pulgadas de la pantalla
+     * @param resolucionAnchura int con la resolución de la anchura de la pantalla
+     * @param resolucionAltura int con la resolución de la altura de la pantalla
+     * @param bitsColor int con los bits de color que soporta la pantalla
+     * @param esAntireflectante boolean de si la pantalla es antireflectante (true) o no (false)
+     */
+    public Pantalla(float precio, String descripcion, String marca, boolean esInalambrico, float pulgadasPantalla, int resolucionAnchura, int resolucionAltura, int bitsColor, boolean esAntireflectante) {
         super(precio, descripcion, marca, esInalambrico);
-        this.pulgada = pulgada;
-        this.tipoPanel = tipoPanel;
-        this.tiempoRespuesta = tiempoRespuesta;
-        this.tasaRefresco = tasaRefresco;
+        this.pulgadasPantalla = pulgadasPantalla;
+        this.resolucionAnchura = resolucionAnchura;
+        this.resolucionAltura = resolucionAltura;
+        this.bitsColor = bitsColor;
+        this.esAntireflectante = esAntireflectante;
     }
 
-    public int getPulgada() {
-        return pulgada;
+    //GETTERS
+
+    /**
+     * Método para saber las pulgadas de la pantalla
+     * @return float con las pulgadas de la pantalla
+     */
+    public float getPulgadasPantalla() {
+        return pulgadasPantalla;
     }
 
-    public void setPulgada(int pulgada) {
-        this.pulgada = pulgada;
+    /**
+     * Método para saber la resolución de la anchura de la pantalla
+     * @return int con la resolución de la anchura de la pantalla
+     */
+    public int getResolucionAnchura() {
+        return resolucionAnchura;
     }
 
-    public String getTipoPanel() {
-        return tipoPanel;
+    /**
+     * Método para saber la resolución de la altura de la pantalla
+     * @return int con la resolución de la altura de la pantalla
+     */
+    public int getResolucionAltura() {
+        return resolucionAltura;
     }
 
-    public void setTipoPanel(String tipoPanel) {
-        this.tipoPanel = tipoPanel;
+    /**
+     * Método para saber los bits de color que soporta la pantalla
+     * @return int con la cantidad de bits de color que soporta la pantalla
+     */
+    public int getBitsColor() {
+        return bitsColor;
     }
 
-    public int getTiempoRespuesta() {
-        return tiempoRespuesta;
+    /**
+     * Método para saber si la pantalla es antireflectante o no
+     * @return boolean true (si es antireflectante) / false (si no lo es)
+     */
+    public boolean esAntireflectante() {
+        return esAntireflectante;
     }
 
-    public void setTiempoRespuesta(int tiempoRespuesta) {
-        this.tiempoRespuesta = tiempoRespuesta;
-    }
-
-    public int getTasaRefresco() {
-        return tasaRefresco;
-    }
-
-    public void setTasaRefresco(int tasaRefresco) {
-        this.tasaRefresco = tasaRefresco;
-    }
-
+    /**
+     * Método para mostrar los valores de los atributos de la pantalla
+     * @return string con los valores de los atributos de la pantalla
+     */
     @Override
     public String toString() {
         return "Pantalla{" +
-                "pulgada=" + pulgada +
-                ", tipoPanel='" + tipoPanel + '\'' +
-                ", tiempoRespuesta=" + tiempoRespuesta +
-                ", tasaRefresco=" + tasaRefresco +
+                "pulgadasPantalla=" + pulgadasPantalla +
+                ", resolucionAnchura=" + resolucionAnchura +
+                ", resolucionAltura=" + resolucionAltura +
+                ", bitsColor=" + bitsColor +
+                ", esAntireflectante=" + esAntireflectante +
                 ", esInalambrico=" + esInalambrico +
                 ", id=" + id +
                 ", precio=" + precio +

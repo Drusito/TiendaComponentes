@@ -5,7 +5,7 @@ import models.ProductoPackage.Producto;
 
 import java.util.ArrayList;
 
-public class PC extends Producto {
+public abstract class PC extends Producto {
     protected ArrayList<DiscoDuro> discoDuro;
     protected MemoriaGrafica memoriaGrafica;
     protected PlacaBase placaBase;
@@ -41,19 +41,7 @@ public class PC extends Producto {
     }
 
     @Override
-    public String toString() {
-        return "PC{" +
-                ", id=" + id +
-                ", precio=" + precio +
-                ", descripcion='" + descripcion + '\'' +
-                ", marca='" + marca + '\'' +
-                "discoDuro=" + discoDuro +
-                ", memoriaGrafica=" + memoriaGrafica +
-                ", placaBase=" + placaBase +
-                ", procesador=" + procesador +
-                ", ram=" + ram +
-                '}';
-    }
+    public abstract String toString();
 
     //public float sumaPrecioFinal(){};
 }
