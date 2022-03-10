@@ -39,7 +39,7 @@ public abstract class PC extends Producto {
     public ArrayList<RAM> getRam() {
         return ram;
     }
-
+    /*HOLAAAAAAAAAAAAAAAAAAAAAAAA PRUEBAAAAAAAAAAAA*/
     @Override
     public abstract String toString();
 
