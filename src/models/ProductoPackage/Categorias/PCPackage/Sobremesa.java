@@ -8,10 +8,10 @@ import models.ProductoPackage.Categorias.Perifericos.Teclado;
 import java.util.ArrayList;
 
 public class Sobremesa extends PC {
-    protected Pantalla pantalla;
-    protected Teclado teclado;
-    protected Mouse mouse;
-    protected boolean refrigeracionLiquida;
+    private Pantalla pantalla;
+    private Teclado teclado;
+    private Mouse mouse;
+    private boolean refrigeracionLiquida;
 
     public Sobremesa(float precio, String descripcion, String marca, ArrayList<DiscoDuro> discoDuro, MemoriaGrafica memoriaGrafica, PlacaBase placaBase, Procesador procesador, ArrayList<RAM> ram, Pantalla pantalla, Teclado teclado, Mouse mouse, boolean refrigeracionLiquida) {
         super(precio, descripcion, marca, discoDuro, memoriaGrafica, placaBase, procesador, ram);
@@ -56,5 +56,24 @@ public class Sobremesa extends PC {
 
     public void setRefrigeracionLiquida(boolean refrigeracionLiquida) {
         this.refrigeracionLiquida = refrigeracionLiquida;
+    }
+
+    @Override
+    public String toString() {
+        return "Sobremesa{" +
+                "discoDuro=" + discoDuro +
+                ", memoriaGrafica=" + memoriaGrafica +
+                ", placaBase=" + placaBase +
+                ", procesador=" + procesador +
+                ", ram=" + ram +
+                ", pantalla=" + pantalla +
+                ", teclado=" + teclado +
+                ", mouse=" + mouse +
+                ", refrigeracionLiquida=" + refrigeracionLiquida +
+                ", id=" + id +
+                ", precio=" + precio +
+                ", descripcion='" + descripcion + '\'' +
+                ", marca='" + marca + '\'' +
+                '}';
     }
 }

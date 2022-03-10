@@ -4,10 +4,10 @@ import models.ProductoPackage.Producto;
 
 public class DiscoDuro extends Componente {
 
-    protected float memoriaGB;
-    protected boolean esPortatil;
-    protected String tipo;
-    protected float velocidadEscritura;
+    private float memoriaGB;
+    private boolean esPortatil;
+    private String tipo;
+    private float velocidadEscritura;
 
     public DiscoDuro(float precio, String descripcion, String marca, float memoriaGB, boolean esPortatil, String tipo, float velocidadEscritura) {
         super(precio, descripcion, marca);
@@ -19,7 +19,6 @@ public class DiscoDuro extends Componente {
 
     /**
      * Getters
-     * @return
      */
     public float getMemoriaGB() {
         return memoriaGB;
