@@ -1,14 +1,15 @@
 import java.util.ArrayList;
 
-import com.oracle.xmlns.internal.webservices.jaxws_databinding.SoapBindingParameterStyle;
 import models.CarroPackage.CarroCompra;
 import models.ProductoPackage.Producto;
 import models.Tienda.Tienda;
 import models.Utils.Utilities;
 
 public class Main {
-    ArrayList<CarroCompra> historialCompras = new ArrayList<>();
+    static ArrayList<CarroCompra> historialCompras = new ArrayList<>();
+    static CarroCompra carro;
     public static void main(String[] args) {
+        carro = crearCarro();
         init();
         menuMain();
     }
@@ -25,7 +26,7 @@ public class Main {
                     //TODO: menuPersonalizar();
                     break;
                 case 3 :
-                    mostrarCompras();
+                    menuMostrarCompras();
                     break;
                 
                 case 4 :
@@ -36,7 +37,6 @@ public class Main {
     }
 
     private static void menuComprar() {
-        CarroCompra carro = crearCarro();
         int menu = 0;
         do {
             menu = Utilities.leerIntLimites(//TODO:Añadir opcion borrar productos del carro
@@ -85,20 +85,21 @@ public class Main {
     }
 
     private static void menuFinCompra() {
-        if (CarroCompra.carrito.finCompra()) {
-            System.out.println("La compra se ha finalizado el precio total ha sido " + CarroCompra.carrito.precioTotal());
-            System.out.println("Resumen de la compra");
-            System.out.println("Compra numero " + CarroCompra.carrito.getId());
-            mostrarProductos(CarroCompra.getCompras().get(CarroCompra.getCompras().size() - 1).getCarro());
+        //El id no puede ser con contador static porque el constructor se usara muchas veces y mas de una vez
+        if (carro.getCarro().size() > 0) {
+            historialCompras.add(carro);
+            System.out.println("\tResumen de la compra numero " + (historialCompras.size()));
+            mostrarProductos(carro.getCarro());
+            carro = crearCarro();
         } else {
-            System.out.println("No tienes ningun producto en el carrito");
+            System.out.println("Tu carrito esta vacio");
         }
     }
 
     private static void menuVerCarrito() {
-        if (CarroCompra.carrito.getCarro().size() > 0) {
+        if (carro.getCarro().size() > 0) {
             System.out.println("Tu carrito");
-            mostrarProductos(CarroCompra.carrito.getCarro());
+            mostrarProductos(carro.getCarro());
         } else {
             System.out.println("Tu carrito esta vacio");
         }
@@ -109,11 +110,11 @@ public class Main {
         System.out.println("Esto son todos los pc");
         mostrarProductos(Tienda.tienda.getPCs());
         iProducto = Utilities.leerIntLimites(
-                "Escribe el indice del portatil o equipo sobre mesa premontado que quieres añadir al carrito o -1 para volver atras (Tambien puedes personalizarte un pc desde el menu principal)",
-                -1,
-                Tienda.tienda.getPCs().size() - 1);
+                "Escribe el indice del portatil o equipo sobre mesa premontado que quieres añadir al carrito o 0 para volver atras (Tambien puedes personalizarte un pc desde el menu principal)",
+                0,
+                Tienda.tienda.getPCs().size()) -1;
         if (iProducto != -1) {
-            CarroCompra.carrito.añadirAlCarro(Tienda.tienda.getPCs().get(iProducto));
+            carro.añadirAlCarro(Tienda.tienda.getPCs().get(iProducto));
         }
     }
 
@@ -122,10 +123,10 @@ public class Main {
         System.out.println("Esto son todos los perifericos");
         mostrarProductos(Tienda.tienda.getPerifericos());
         iProducto = Utilities.leerIntLimites(
-                "Escribe el indice del periferico que quieres añadir al carrito o -1 para volver atras", -1,
-                Tienda.tienda.getPerifericos().size() - 1);
+                "Escribe el indice del periferico que quieres añadir al carrito o 0 para volver atras", 0,
+                Tienda.tienda.getPerifericos().size()) -1;
         if (iProducto != -1) {
-            CarroCompra.carrito.añadirAlCarro(Tienda.tienda.getPerifericos().get(iProducto));
+            carro.añadirAlCarro(Tienda.tienda.getPerifericos().get(iProducto));
         }
     }
 
@@ -134,26 +135,25 @@ public class Main {
         System.out.println("Esto son todos los componentes");
         mostrarProductos(Tienda.tienda.getComponentes());
         iProducto = Utilities.leerIntLimites(
-                "Escribe el indice del componente que quieres añadir al carrito o -1 para volver atras", -1,
-                Tienda.tienda.getPerifericos().size() - 1);
+                "Escribe el indice del componente que quieres añadir al carrito o 0 para volver atras", 0,
+                Tienda.tienda.getComponentes().size()) -1;
         if (iProducto != -1) {
-            CarroCompra.carrito.añadirAlCarro(Tienda.tienda.getPerifericos().get(iProducto));
+            carro.añadirAlCarro(Tienda.tienda.getComponentes().get(iProducto));
         }
     }
 
     private static void mostrarProductos(ArrayList<Producto> ap) {
         for (int i = 0; i < ap.size(); i++) {
-            System.out.println(i+" "+ap.get(i).getClass().getSimpleName()+" "+ap.get(i).getMarca());
+            System.out.println((i+1)+" "+ap.get(i).getClass().getSimpleName()+" "+ap.get(i).getMarca());
         }
     }
 
-    private static void mostrarCompras() {
-        if (CarroCompra.getCompras().size() > 0) {
+    private static void menuMostrarCompras() {
+        if (historialCompras.size() > 0) {
             System.out.println("Estos son tus ultimas compras");
-
-            for (CarroCompra cc : CarroCompra.getCompras()) {
-                System.out.println("Compra numero " + cc.getId());
-                mostrarProductos(cc.getCarro());
+            for (int i = 0; i < historialCompras.size(); i++) {
+                System.out.println("\tCompra numero " + (i+1));
+                mostrarProductos(historialCompras.get(i).getCarro());
             }
         } else {
             System.out.println("No tienes compras recientes");
