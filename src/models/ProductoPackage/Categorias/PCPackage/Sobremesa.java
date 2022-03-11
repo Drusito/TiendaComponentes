@@ -59,6 +59,17 @@ public class Sobremesa extends PC implements accionesPC{
     }
 
     @Override
+    public float sumaPrecio() {
+        float precioTotal=0;
+        if(this.componentesPc.size()>0) {
+            for (Componente componente : this.componentesPc) {
+                precioTotal += componente.getPrecio();
+            }
+        }
+        return precioTotal;
+    }
+
+    @Override
     public String toString() {
         return "Sobremesa{" +
                 "discoDuro=" + discoDuro +
@@ -78,11 +89,14 @@ public class Sobremesa extends PC implements accionesPC{
     }
 
     @Override
-    public ArrayList<Componente> montarPc(ArrayList<Componente> componentes) {
-    return null;
+    public void montarPc(ArrayList<Componente> componentes) {
     }
     @Override
-    public Componente cambiarPieza(Componente componenteCambio) {
-        return null;
+    public void cambiarPieza(Componente componenteCambio) {
+        for (Componente componente : this.componentesPc) {
+            if (componente.getClass() == componenteCambio.getClass()) {
+                componente = componenteCambio;
+            }
+        }
     }
 }

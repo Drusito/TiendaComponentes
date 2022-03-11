@@ -11,7 +11,7 @@ public class Portatil extends PC implements accionesPC {
     private final int puertosUSB;
     private final boolean tienePuertoAuriculares;
 
-    public Portatil(float precio, String descripcion, String marca, ArrayList<DiscoDuro> discoDuro, MemoriaGrafica memoriaGrafica, PlacaBase placaBase, Procesador procesador, ArrayList<RAM> ram, float pulgadasPantalla, boolean ventilacionExtra, boolean tieneHDMI, int puertosUSB, boolean tienePuertoAuriculares) {
+    public Portatil(float precio, String descripcion, String marca, ArrayList<Componente> discoDuro, MemoriaGrafica memoriaGrafica, PlacaBase placaBase, Procesador procesador, ArrayList<Componente> ram, float pulgadasPantalla, boolean ventilacionExtra, boolean tieneHDMI, int puertosUSB, boolean tienePuertoAuriculares) {
         super(precio, descripcion, marca, discoDuro, memoriaGrafica, placaBase, procesador, ram);
         this.pulgadasPantalla = pulgadasPantalla;
         this.ventilacionExtra = ventilacionExtra;
@@ -51,6 +51,15 @@ public class Portatil extends PC implements accionesPC {
     }
 
     @Override
+    public float sumaPrecio() {
+        float precioTotal=0;
+        for (Componente componente : this.componentesPc) {
+            precioTotal += componente.getPrecio();
+        }
+        return precioTotal;
+    }
+
+    @Override
     public String toString() {
         return "Portatil{" +
                 "discoDuro=" + discoDuro +
@@ -71,12 +80,16 @@ public class Portatil extends PC implements accionesPC {
     }
 
     @Override
-    public ArrayList<Componente> montarPc(ArrayList<Componente> componentes) {
-        return null;
+    public void montarPc(ArrayList<Componente> componentes) {
+        this.componentesPc.addAll(componentes);
     }
 
     @Override
-    public Componente cambiarPieza(Componente componenteCambio) {
-        return null;
+    public void cambiarPieza(Componente componenteCambio) {
+        for (Componente componente : this.componentesPc) {
+            if (componente.getClass() == componenteCambio.getClass()) {
+                componente = componenteCambio;
+            }
+        }
     }
 }

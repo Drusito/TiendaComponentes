@@ -20,7 +20,7 @@ public abstract class PC extends Producto {
         this.placaBase = placaBase;
         this.procesador = procesador;
         this.ram = ram;
-        addArrayComponente(this.discoDuro);
+        this.componentesPc = addAllComponents();
     }
 
     /**
@@ -48,10 +48,17 @@ public abstract class PC extends Producto {
         componentesNuevos.add(procesador);
         return componentesNuevos;
     }
-    private void addArrayComponente(ArrayList<Componente> componentes){
+    private ArrayList<Componente> addArrayComponente(ArrayList<Componente> componentes){
         this.componentesPc.addAll(componentes);
+        return this.componentesPc;
     }
-    /*HOLAAAAAAAAAAAAAAAAAAAAAAAA PRUEBAAAAAAAAAAAA*/
+    private ArrayList<Componente> addAllComponents (){
+        this.componentesPc = addComponente(memoriaGrafica,placaBase,procesador);
+        this.componentesPc = addArrayComponente(discoDuro);
+        this.componentesPc = addArrayComponente(ram);
+        return this.componentesPc;
+    }
+    public abstract float sumaPrecio();
     @Override
     public abstract String toString();
 
