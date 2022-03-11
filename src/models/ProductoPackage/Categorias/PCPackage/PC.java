@@ -6,25 +6,27 @@ import models.ProductoPackage.Producto;
 import java.util.ArrayList;
 
 public abstract class PC extends Producto {
-    protected ArrayList<DiscoDuro> discoDuro;
+    protected ArrayList<Componente> discoDuro;
     protected MemoriaGrafica memoriaGrafica;
     protected PlacaBase placaBase;
     protected Procesador procesador;
-    protected ArrayList<RAM> ram;
+    protected ArrayList<Componente> ram;
+    protected ArrayList<Componente> componentesPc;
 
-    public PC(float precio, String descripcion, String marca, ArrayList<DiscoDuro> discoDuro, MemoriaGrafica memoriaGrafica, PlacaBase placaBase, Procesador procesador, ArrayList<RAM> ram) {
+    public PC(float precio, String descripcion, String marca, ArrayList<Componente> discoDuro, MemoriaGrafica memoriaGrafica, PlacaBase placaBase, Procesador procesador, ArrayList<Componente> ram) {
         super(precio, descripcion, marca);
         this.discoDuro = discoDuro;
         this.memoriaGrafica = memoriaGrafica;
         this.placaBase = placaBase;
         this.procesador = procesador;
         this.ram = ram;
+        addArrayComponente(this.discoDuro);
     }
 
     /**
      * Getters
      */
-    public ArrayList<DiscoDuro> getDiscoDuro() {
+    public ArrayList<Componente> getDiscoDuro() {
         return discoDuro;
     }
     public MemoriaGrafica getMemoriaGrafica() {
@@ -36,8 +38,18 @@ public abstract class PC extends Producto {
     public Procesador getProcesador() {
         return procesador;
     }
-    public ArrayList<RAM> getRam() {
+    public ArrayList<Componente> getRam() {
         return ram;
+    }
+    private ArrayList<Componente> addComponente(MemoriaGrafica memoriaGrafica, PlacaBase placaBase, Procesador procesador){
+        ArrayList<Componente> componentesNuevos = new ArrayList<>();
+        componentesNuevos.add(memoriaGrafica);
+        componentesNuevos.add(placaBase);
+        componentesNuevos.add(procesador);
+        return componentesNuevos;
+    }
+    private void addArrayComponente(ArrayList<Componente> componentes){
+        this.componentesPc.addAll(componentes);
     }
     /*HOLAAAAAAAAAAAAAAAAAAAAAAAA PRUEBAAAAAAAAAAAA*/
     @Override

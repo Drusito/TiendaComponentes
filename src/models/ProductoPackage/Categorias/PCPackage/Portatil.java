@@ -4,7 +4,7 @@ import models.ProductoPackage.Categorias.ComponentesPackage.*;
 
 import java.util.ArrayList;
 
-public class Portatil extends PC {
+public class Portatil extends PC implements accionesPC {
     private final float pulgadasPantalla;
     private boolean ventilacionExtra;
     private final boolean tieneHDMI;
@@ -68,5 +68,15 @@ public class Portatil extends PC {
                 ", descripcion='" + descripcion + '\'' +
                 ", marca='" + marca + '\'' +
                 '}';
+    }
+
+    @Override
+    public ArrayList<Componente> montarPc(ArrayList<Componente> componentes) {
+        return null;
+    }
+
+    @Override
+    public Componente cambiarPieza(Componente componenteCambio) {
+        return null;
     }
 }

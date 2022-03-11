@@ -25,7 +25,7 @@ public class Tienda {
     }
     private void initPerifericos(){
         //CREAR 2 COMPONENTES DE CADA TIPO
-        Auricular auricular1 = new Auricular(60.35f, "Facilitará tus comunicaciones con un uso sencillo gracias a su tecnología Plug&Play: conéctalo a tu ordenador y ya podrás empezar a chatear", "Sony", true,120, true, false, false);
+    /*    Auricular auricular1 = new Auricular(60.35f, "Facilitará tus comunicaciones con un uso sencillo gracias a su tecnología Plug&Play: conéctalo a tu ordenador y ya podrás empezar a chatear", "Sony", true,120, true, false, false);
         Auricular auricular2 = new Auricular(48.50f, "Disfruta de llamadas claras con una simple conexión USB y un micrófono con supresión de ruido. Mediante controles integrados en el cable se puede controlar el volumen o silenciarlo sin interrumpir la llamada en curso.", "Logitech", false, 140, true, false, true);
 
         Mouse mouse1 = new Mouse(29.90f, "Es un ratón inalámbrico para gaming LIGHTSPEED diseñado para un rendimiento excelente con las innovaciones tecnológicas más recientes a un precio asequible.", "Logitech", true, true, 12000, true, 4);
@@ -36,6 +36,6 @@ public class Tienda {
 
         Teclado teclado1 = new Teclado(19.99f, "Cuenta con fiable conexión inalámbrica hasta a 10 metros de distancia, que comparten un minúsculo receptor USB. Sin líos de emparejamiento ni de instalación de software.", "Logitech", true, false, false, true);
         Teclado teclado2 = new Teclado(29.98f, "Puedes personalizar con millones de colores y hasta 10 efectos de luz pre-definidos en 6 zonas.", "MSI", false, false, true, true);
-
+*/
     }
 }

@@ -7,13 +7,13 @@ import models.ProductoPackage.Categorias.Perifericos.Teclado;
 
 import java.util.ArrayList;
 
-public class Sobremesa extends PC {
+public class Sobremesa extends PC implements accionesPC{
     private Pantalla pantalla;
     private Teclado teclado;
     private Mouse mouse;
     private boolean refrigeracionLiquida;
 
-    public Sobremesa(float precio, String descripcion, String marca, ArrayList<DiscoDuro> discoDuro, MemoriaGrafica memoriaGrafica, PlacaBase placaBase, Procesador procesador, ArrayList<RAM> ram, Pantalla pantalla, Teclado teclado, Mouse mouse, boolean refrigeracionLiquida) {
+    public Sobremesa(float precio, String descripcion, String marca, ArrayList<Componente> discoDuro, MemoriaGrafica memoriaGrafica, PlacaBase placaBase, Procesador procesador, ArrayList<Componente> ram, Pantalla pantalla, Teclado teclado, Mouse mouse, boolean refrigeracionLiquida) {
         super(precio, descripcion, marca, discoDuro, memoriaGrafica, placaBase, procesador, ram);
         this.pantalla = pantalla;
         this.teclado = teclado;
@@ -75,5 +75,14 @@ public class Sobremesa extends PC {
                 ", descripcion='" + descripcion + '\'' +
                 ", marca='" + marca + '\'' +
                 '}';
+    }
+
+    @Override
+    public ArrayList<Componente> montarPc(ArrayList<Componente> componentes) {
+    return null;
+    }
+    @Override
+    public Componente cambiarPieza(Componente componenteCambio) {
+        return null;
     }
 }
