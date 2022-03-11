@@ -43,8 +43,8 @@ public class Tienda {
         Auricular auricular1 = new Auricular(60.35f, "Facilitará tus comunicaciones con un uso sencillo gracias a su tecnología Plug&Play: conéctalo a tu ordenador y ya podrás empezar a chatear", "Logitech", false, true, true);
         Auricular auricular2 = new Auricular(48.50f, "Disfruta de llamadas claras con una simple conexión USB y un micrófono con supresión de ruido. Mediante controles integrados en el cable se puede controlar el volumen o silenciarlo sin interrumpir la llamada en curso.", "Logitech", false, true, true);
 
-        Mouse mouse1 = new Mouse(29.90f, "Es un ratón inalámbrico para gaming LIGHTSPEED diseñado para un rendimiento excelente con las innovaciones tecnológicas más recientes a un precio asequible.", "Logitech", true, 4, true, 15000,5);
-        Mouse mouse2 = new Mouse(44.89f, "Sea cual sea tu estilo de gaming, puedes ajustar el raton fácilmente según tus requisitos de uso, con perfiles personalizados para tus juegos.", "Logitech", true, 6,true, 25000,7);
+        Mouse mouse1 = new Mouse(29.90f, "Es un ratón inalámbrico para gaming LIGHTSPEED diseñado para un rendimiento excelente con las innovaciones tecnológicas más recientes a un precio asequible.", "Logitech", true, 4, true, 15000,(short)5);
+        Mouse mouse2 = new Mouse(44.89f, "Sea cual sea tu estilo de gaming, puedes ajustar el raton fácilmente según tus requisitos de uso, con perfiles personalizados para tus juegos.", "Logitech", true, 6,true, 25000,(short)7);
 
         Pantalla pantalla1 = new Pantalla(199.99f, "Equipado con una espectacular resolución 4K y HDR, garantiza imágenes con increíble nitidez y riqueza de detalles.", "Benq", false, 27, 1920, 1080, 16, true);
         Pantalla pantalla2 = new Pantalla(169.45f, "Destaca el rendimiento de las pantallas de cristal líquido. Se acortan los tiempos de respuesta, se mejora la reproducción del color y los usuarios pueden ver la pantalla en ángulos amplios.", "LG", false, 24,3840 , 2160, 16, true);
