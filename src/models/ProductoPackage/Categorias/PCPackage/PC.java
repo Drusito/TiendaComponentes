@@ -44,6 +44,6 @@ public abstract class PC extends Producto {
     /*HOLAAAAAAAAAAAAAAAAAAAAAAAA PRUEBAAAAAAAAAAAA*/
     @Override
     public abstract String toString();
-
+    protected abstract float obtenerPrecioTotal();
     //public float sumaPrecioFinal(){};
 }

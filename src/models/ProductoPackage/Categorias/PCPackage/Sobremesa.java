@@ -19,6 +19,7 @@ public class Sobremesa extends PC implements accionesPC{
         this.teclado = teclado;
         this.mouse = mouse;
         this.refrigeracionLiquida = refrigeracionLiquida;
+        this.precio = obtenerPrecioTotal();
     }
 
     /**
@@ -75,6 +76,17 @@ public class Sobremesa extends PC implements accionesPC{
                 ", descripcion='" + descripcion + '\'' +
                 ", marca='" + marca + '\'' +
                 '}';
+    }
+
+    @Override
+    protected float obtenerPrecioTotal() {
+        float precioTotal = 0;
+        if(this.componentesPC.size() > 0){
+            for (Componente componente : componentesPC) {
+                precioTotal += componente.getPrecio();
+            }
+        }
+        return precioTotal;
     }
 
     @Override
