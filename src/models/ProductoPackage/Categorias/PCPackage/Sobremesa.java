@@ -98,5 +98,6 @@ public class Sobremesa extends PC implements accionesPC{
                 componente = componenteCambio;
             }
         }
+
     }
 }
