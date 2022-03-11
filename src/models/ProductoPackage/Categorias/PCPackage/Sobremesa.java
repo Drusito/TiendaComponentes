@@ -102,4 +102,21 @@ public class Sobremesa extends PC implements accionesPC{
             }
         }
     }
+
+    @Override
+    public boolean addRam(RAM ram) {
+        if(this.ram.size() > this.MAX_SLOTS){
+            return false;
+        }
+        this.ram.add(ram);
+        return true;
+    }
+    @Override
+    public boolean addDiscoDuro(DiscoDuro discoDuro) {
+        if(this.discoDuro.size() > this.MAX_SLOTS){
+            return false;
+        }
+        this.discoDuro.add(discoDuro);
+        return true;
+    }
 }
