@@ -16,18 +16,18 @@ public class Main {
             menu = Utilities.leerIntLimites(
                     "Menu principal\n1. Comprar\n2. Personalizador de pc\n3. Historial de compras\n4. Salir", 1, 4);
             switch (menu) {
-                case 1 -> {
+                case 1 :
                     menuComprar();
-                }
-                case 2 -> {
+                    break;
+                case 2 :
                     //TODO: menuPersonalizar();
-                }
-                case 3 -> {
-                    mostrarCompras();
-                }
-                case 4 -> {
+                    break;
+                case 3 :
+                    break;
+                
+                case 4 :
                     System.out.println("Saliendo...");
-                }
+                    break;
             }
         } while (menu != 4);
     }
