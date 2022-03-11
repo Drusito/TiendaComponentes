@@ -7,18 +7,19 @@ import models.ProductoPackage.Categorias.Perifericos.Teclado;
 
 import java.util.ArrayList;
 
-public class Sobremesa extends PC {
-    private Pantalla pantalla;
-    private Teclado teclado;
-    private Mouse mouse;
-    private boolean refrigeracionLiquida;
+public class Sobremesa extends PC implements accionesPC{
+    protected Pantalla pantalla;
+    protected Teclado teclado;
+    protected Mouse mouse;
+    protected boolean refrigeracionLiquida;
 
-    public Sobremesa(float precio, String descripcion, String marca, ArrayList<DiscoDuro> discoDuro, MemoriaGrafica memoriaGrafica, PlacaBase placaBase, Procesador procesador, ArrayList<RAM> ram, Pantalla pantalla, Teclado teclado, Mouse mouse, boolean refrigeracionLiquida) {
-        super(precio, descripcion, marca, discoDuro, memoriaGrafica, placaBase, procesador, ram);
+    public Sobremesa(float precio, String descripcion, String marca, ArrayList<Componente> discoDuro, MemoriaGrafica memoriaGrafica, PlacaBase placaBase, Procesador procesador, ArrayList<Componente> ram, ArrayList<Componente> componentesPC, Pantalla pantalla, Teclado teclado, Mouse mouse, boolean refrigeracionLiquida) {
+        super(precio, descripcion, marca, discoDuro, memoriaGrafica, placaBase, procesador, ram, componentesPC);
         this.pantalla = pantalla;
         this.teclado = teclado;
         this.mouse = mouse;
         this.refrigeracionLiquida = refrigeracionLiquida;
+        this.precio = obtenerPrecioTotal();
     }
 
     /**
@@ -75,5 +76,30 @@ public class Sobremesa extends PC {
                 ", descripcion='" + descripcion + '\'' +
                 ", marca='" + marca + '\'' +
                 '}';
+    }
+
+    @Override
+    protected float obtenerPrecioTotal() {
+        float precioTotal = 0;
+        if(this.componentesPC.size() > 0){
+            for (Componente componente : componentesPC) {
+                precioTotal += componente.getPrecio();
+            }
+        }
+        return precioTotal;
+    }
+
+    @Override
+    public void montarPc(ArrayList<Componente> componentes) {
+        this.componentesPC.addAll(componentes);
+    }
+
+    @Override
+    public void cambiarPieza(Componente componenteCambiar) {
+        for (Componente componente : this.componentesPC){
+            if(componente.getClass()==componenteCambiar.getClass()){
+                componente = componenteCambiar;
+            }
+        }
     }
 }
