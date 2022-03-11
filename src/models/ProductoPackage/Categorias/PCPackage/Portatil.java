@@ -5,6 +5,7 @@ import models.ProductoPackage.Categorias.ComponentesPackage.*;
 import java.util.ArrayList;
 
 public class Portatil extends PC implements accionesPC{
+
     protected final float pulgadasPantalla;
     protected boolean ventilacionExtra;
     protected final boolean tieneHDMI;
@@ -21,18 +22,15 @@ public class Portatil extends PC implements accionesPC{
         this.tienePuertoAuriculares = tienePuertoAuriculares;
         this.precio = obtenerPrecioTotal();
     }
-
     /**
      * Getters
      */
     public float getPulgadasPantalla() {
         return pulgadasPantalla;
     }
-
     public boolean isVentilacionExtra() {
         return ventilacionExtra;
     }
-
     public boolean isTieneHDMI() {
         return tieneHDMI;
     }
@@ -84,19 +82,34 @@ public class Portatil extends PC implements accionesPC{
         }
         return precioTotal;
     }
-
     @Override
     public void montarPc(ArrayList<Componente> componentes) {
         this.componentesPC.addAll(componentes);
     }
-
     @Override
     public void cambiarPieza(Componente componenteCambiar) {
         for (Componente componente : this.componentesPC){
             if(componente.getClass()==componenteCambiar.getClass()){
                 componente = componenteCambiar;
             }
+
+
         }
     }
-
+    @Override
+    public boolean addRam(RAM ram) {
+        if(this.ram.size() > this.MAX_SLOTS){
+            return false;
+        }
+        this.ram.add(ram);
+        return true;
+    }
+    @Override
+    public boolean addDiscoDuro(DiscoDuro discoDuro) {
+        if(this.discoDuro.size() > this.MAX_SLOTS){
+            return false;
+        }
+        this.discoDuro.add(discoDuro);
+        return true;
+    }
 }

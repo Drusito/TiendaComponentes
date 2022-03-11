@@ -1,3 +1,4 @@
+import models.ProductoPackage.Categorias.ComponentesPackage.Componente;
 import models.ProductoPackage.Categorias.ComponentesPackage.DiscoDuro;
 
 public class Main {

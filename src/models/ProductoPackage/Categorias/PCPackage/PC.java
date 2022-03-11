@@ -6,6 +6,8 @@ import models.ProductoPackage.Producto;
 import java.util.ArrayList;
 
 public abstract class PC extends Producto {
+    protected int MAX_SLOTS = 2;
+
     protected ArrayList<Componente> discoDuro;
     protected MemoriaGrafica memoriaGrafica;
     protected PlacaBase placaBase;
