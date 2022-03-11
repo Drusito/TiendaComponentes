@@ -4,15 +4,15 @@ import models.ProductoPackage.Categorias.ComponentesPackage.*;
 
 import java.util.ArrayList;
 
-public class Portatil extends PC {
+public class Portatil extends PC implements accionesPC{
     protected final float pulgadasPantalla;
     protected boolean ventilacionExtra;
     protected final boolean tieneHDMI;
     protected final int puertosUSB;
     protected final boolean tienePuertoAuriculares;
 
-    public Portatil(float precio, String descripcion, String marca, ArrayList<DiscoDuro> discoDuro, MemoriaGrafica memoriaGrafica, PlacaBase placaBase, Procesador procesador, ArrayList<RAM> ram, float pulgadasPantalla, boolean ventilacionExtra, boolean tieneHDMI, int puertosUSB, boolean tienePuertoAuriculares) {
-        super(precio, descripcion, marca, discoDuro, memoriaGrafica, placaBase, procesador, ram);
+    public Portatil(float precio, String descripcion, String marca, ArrayList<Componente> discoDuro, MemoriaGrafica memoriaGrafica, PlacaBase placaBase, Procesador procesador, ArrayList<Componente> ram, ArrayList<Componente> componentesPC, float pulgadasPantalla, boolean ventilacionExtra, boolean tieneHDMI, int puertosUSB, boolean tienePuertoAuriculares) {
+        super(precio, descripcion, marca, discoDuro, memoriaGrafica, placaBase, procesador, ram, componentesPC);
         this.pulgadasPantalla = pulgadasPantalla;
         this.ventilacionExtra = ventilacionExtra;
         this.tieneHDMI = tieneHDMI;
@@ -70,5 +70,19 @@ public class Portatil extends PC {
                 '}';
 
 
+    }
+
+    @Override
+    public void montarPc(ArrayList<Componente> componentes) {
+        this.componentesPC.addAll(componentes);
+    }
+
+    @Override
+    public void cambiarPieza(Componente componenteCambiar) {
+        for (Componente componente : this.componentesPC){
+            if(componente.getClass()==componenteCambiar.getClass()){
+                componente = componenteCambiar;
+            }
+        }
     }
 }
