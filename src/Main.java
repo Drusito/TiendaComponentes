@@ -20,7 +20,7 @@ public class Main {
                     menuComprar();
                 }
                 case 2 -> {
-                    menuPersonalizar();
+                    //TODO: menuPersonalizar();
                 }
                 case 3 -> {
                     mostrarCompras();
@@ -38,48 +38,52 @@ public class Main {
             menu = Utilities.leerIntLimites(
                     "Menu comprar\n1. Ver categorias\n2. Finalizar compra\n3. Ver carrito\n4. Atras", 1, 4);
             switch (menu) {
-                case 1 -> {
+                case 1:
                     menuCategorias();
-                }
-                case 2 -> {
+                    break;
+
+                case 2:
                     menuFinCompra();
-                }
-                case 3 -> {
+                    break;
+
+                case 3:
                     menuVerCarrito();
-                }
-                case 4 -> {
+                    break;
+
+                case 4:
                     System.out.println("Volviendo atras...");
-                }
+                    break;
+
             }
         } while (menu != 4);
     }
-    
+
     private static void menuCategorias() {
         int menu = 0;
         do {
             menu = Utilities.leerIntLimites(
-                "Categorias\n\tEscoge una categoria\n1. Perifericos\n2. PCs\n3. Componentes\n4. Atras", 1, 4);
-                switch (menu) {
-                    case 1 -> {
+                    "Categorias\n\tEscoge una categoria\n1. Perifericos\n2. PCs\n3. Componentes\n4. Atras", 1, 4);
+            switch (menu) {
+                case 1:
                     elegirPeriferico();
-                }
-                case 2 -> {
+                    break;
+                case 2:
                     elegitPC();
-                }
-                case 3 -> {
+                    break;
+                case 3:
                     elegitComponente();
-                }
-                case 4 -> {
+                    break;
+                case 4:
                     System.out.println("Volviendo atras...");
-                }
+                    break;
             }
         } while (menu != 4);
     }
-    
+
     private static void menuFinCompra() {
         if (CarroCompra.carrito.finCompra()) {
             System.out
-            .println("La compra se ha finalizado el precio total ha sido " + CarroCompra.carrito.precioTotal());
+                    .println("La compra se ha finalizado el precio total ha sido " + CarroCompra.carrito.precioTotal());
             System.out.println("Resumen de la compra");
             System.out.println("Compra numero " + CarroCompra.carrito.getId());
             mostrarProductos(CarroCompra.getCompras().get(CarroCompra.getCompras().size() - 1).getCarro());
@@ -87,15 +91,15 @@ public class Main {
             System.out.println("No tienes ningun producto en el carrito");
         }
     }
-    
-        private static void menuVerCarrito() {
-            if (CarroCompra.carrito.getCarro().size() > 0) {
-                System.out.println("Tu carrito");
-                mostrarProductos(CarroCompra.carrito.getCarro());
-            } else {
-                System.out.println("Tu carrito esta vacio");
-            }
+
+    private static void menuVerCarrito() {
+        if (CarroCompra.carrito.getCarro().size() > 0) {
+            System.out.println("Tu carrito");
+            mostrarProductos(CarroCompra.carrito.getCarro());
+        } else {
+            System.out.println("Tu carrito esta vacio");
         }
+    }
 
     private static void elegitPC() {
         int iProducto = 0;
@@ -143,7 +147,7 @@ public class Main {
     private static void mostrarCompras() {
         if (CarroCompra.getCompras().size() > 0) {
             System.out.println("Estos son tus ultimas compras");
-    
+
             for (CarroCompra cc : CarroCompra.getCompras()) {
                 System.out.println("Compra numero " + cc.getId());
                 mostrarProductos(cc.getCarro());
