@@ -67,12 +67,14 @@ public class Mouse extends Periferico{
      * Método para cambiar la sensibiliad del ratón
      * @param sensibilidad short con la nueva sensibilidad del ratón (1-11)
      */
-    public void setSensibilidad(short sensibilidad) {
+    public boolean setSensibilidad(short sensibilidad) {
+        //System.out.println("Valores fuera de rango. Introduzca valores del 1 al 11");
         if(sensibilidad < MIN_SENSIBILIDAD || sensibilidad > MAX_SENSIBILIDAD){
-            System.out.println("Valores fuera de rango. Introduzca valores del 1 al 11");
+            return false;
         }
         else{
             this.sensibilidad = sensibilidad;
+            return true;
         }
     }
 
