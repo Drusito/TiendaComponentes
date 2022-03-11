@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 import models.CarroPackage.CarroCompra;
 import models.ProductoPackage.Producto;
+import models.Tienda.Tienda;
 import models.Utils.Utilities;
 
 public class Main {
@@ -12,7 +13,7 @@ public class Main {
     private static void menuMain() {
         int menu = 0;
         do {
-            menu = Utilities.leerIntLimites("Menu principal\n1. Comprar\n2. Personalizador de pc\n3. Historial de compras\n4. Ver carrito\n5. Salir", 1, 5);
+            menu = Utilities.leerIntLimites("Menu principal\n1. Comprar\n2. Personalizador de pc\n3. Historial de compras\n4. Salir", 1, 4);
             switch(menu) {
                 case 1 -> {
                     menuComprar();
@@ -24,32 +25,64 @@ public class Main {
                     mostrarCompras();
                 }
                 case 4 -> {
-                    System.out.println("Tu carrito");
-                    mostrarProductos(CarroCompra.carrito.getCarro());
-                }
-                case 5 -> {
                     System.out.println("Saliendo...");
                 }
             }
-        } while(menu != 5);
+        } while(menu != 4);
     }
     
     private static void menuComprar() {
         int menu = 0;
         do {
-            menu = Utilities.leerIntLimites("Menu comprar\n\tEscoge una categoria para\n1. Ver categorias\n2. \n3. Atras", 1, 3);
+            menu = Utilities.leerIntLimites("Menu comprar\n1. Ver categorias\n2. Finalizar compra\n3. Ver carrito\n4. Atras", 1, 4);
             switch(menu) {
                 case 1 -> {
-                    System.out.println("Comprar");
+                    menuCategorias();
                 }
                 case 2 -> {
-                    System.out.println("Personalizar");
+                    menuFinCompra();
                 }
                 case 3 -> {
+                    System.out.println("Tu carrito");
+                    mostrarProductos(CarroCompra.carrito.getCarro());
+                }
+                case 4 -> {
                     System.out.println("Volviendo atras...");
                 }
             }
-        } while(menu != 3);
+        } while(menu != 4);
+    }
+    
+    private static void menuCategorias() {
+        int menu = 0;
+        do {
+            menu = Utilities.leerIntLimites("Categorias\n\tEscoge una categoria\n1. Perifericos\n2. PCs\n3. Componentes\n4. Atras", 1, 4);
+            switch(menu) {
+                case 1 -> {
+                    mostrarProductos(Tienda.tienda.getPerifericos());
+                }
+                case 2 -> {
+                    //TODO: mostrar PCs
+                }
+                case 3 -> {
+                    //TODO: mostrar Componentes
+                }
+                case 4 -> {
+                    System.out.println("Volviendo atras...");
+                }
+            }
+        } while(menu != 4);
+    }
+    
+    private static void menuFinCompra() {
+        if (CarroCompra.carrito.finCompra()) {
+            System.out.println("La compra se ha finalizado el precio total ha sido " + CarroCompra.carrito.precioTotal());
+            System.out.println("Resumen de la compra");
+            System.out.println("Compra numero " + CarroCompra.carrito.getId());
+            mostrarProductos(CarroCompra.getCompras().get(CarroCompra.getCompras().size()-1).getCarro());
+        } else {
+            System.out.println("No tienes ningun producto en el carrito");
+        }
     }
     
     private static void mostrarProductos(ArrayList<Producto> ap) {
@@ -60,10 +93,11 @@ public class Main {
 
     private static void mostrarCompras() {
         System.out.println("Estos son tus ultimas compras");
-    
+        
         for (CarroCompra cc : CarroCompra.getCompras()) {
             System.out.println("Compra numero " + cc.getId());
             mostrarProductos(cc.getCarro());
         }
     }
+    
 }

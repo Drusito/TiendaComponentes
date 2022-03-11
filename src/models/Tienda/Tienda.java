@@ -2,6 +2,7 @@ package models.Tienda;
 
 import java.util.ArrayList;
 
+import models.ProductoPackage.Producto;
 import models.ProductoPackage.Categorias.ComponentesPackage.Componente;
 import models.ProductoPackage.Categorias.ComponentesPackage.DiscoDuro;
 import models.ProductoPackage.Categorias.ComponentesPackage.MemoriaGrafica;
@@ -17,9 +18,11 @@ import models.ProductoPackage.Categorias.PCPackage.Portatil;
 import models.ProductoPackage.Categorias.PCPackage.PC;
 
 public class Tienda {
-    ArrayList<Componente> componentes;
-    ArrayList<PC> pcs;
-    ArrayList<Periferico> perifericos;
+    public static Tienda tienda = new Tienda();
+
+    private ArrayList<Producto> componentes;
+    private ArrayList<Producto> pcs;
+    private ArrayList<Producto> perifericos;
 
     private Tienda() {
         this.componentes = new ArrayList<>();
@@ -101,5 +104,17 @@ public class Tienda {
                 "Puedes personalizar con millones de colores y hasta 10 efectos de luz pre-definidos en 6 zonas.",
                 "MSI", false, true, true);
 
+    }
+
+    public ArrayList<Producto> getPerifericos() {
+        return this.perifericos;
+    }
+
+    public ArrayList<Producto> getPCs() {
+        return this.pcs;
+    }
+
+    public ArrayList<Producto> getComponentes() {
+        return this.componentes;
     }
 }
