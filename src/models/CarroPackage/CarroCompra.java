@@ -5,16 +5,23 @@ import java.util.ArrayList;
 import models.ProductoPackage.Producto;
 
 public class CarroCompra {
+    /**
+     * Crear objeto estatico 
+     */
     public static CarroCompra carrito = new CarroCompra();
 
     private int id;
     private ArrayList<Producto> carro;
     private static int contador = 1;
     private static ArrayList<CarroCompra> compras = new ArrayList<>();
+
     /**
      * Constructor
+     * 
+     * privado porque el objeto es estatico y el mismo para todos
+     * 
      */
-    public CarroCompra() {
+    private CarroCompra() {
         this.carro = new ArrayList<>();
     }
 
@@ -73,7 +80,7 @@ public class CarroCompra {
      * El historial de compras
      * @return compras es la array list de todas las compras
      */
-    public ArrayList<CarroCompra> getCompras() {
+    public static ArrayList<CarroCompra> getCompras() {
         return CarroCompra.compras;
     }
 
@@ -83,5 +90,9 @@ public class CarroCompra {
      */
     public ArrayList<Producto> getCarro() {
         return this.carro;
+    }
+
+    public int getId() {
+        return this.id;
     }
 }
