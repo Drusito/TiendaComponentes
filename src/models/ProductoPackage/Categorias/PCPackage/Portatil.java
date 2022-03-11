@@ -68,5 +68,7 @@ public class Portatil extends PC {
                 ", descripcion='" + descripcion + '\'' +
                 ", marca='" + marca + '\'' +
                 '}';
+
+
     }
 }
