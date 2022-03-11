@@ -1,15 +1,17 @@
 import java.util.ArrayList;
 
+import com.oracle.xmlns.internal.webservices.jaxws_databinding.SoapBindingParameterStyle;
 import models.CarroPackage.CarroCompra;
 import models.ProductoPackage.Producto;
 import models.Tienda.Tienda;
 import models.Utils.Utilities;
 
 public class Main {
+    ArrayList<CarroCompra> historialCompras = new ArrayList<>();
     public static void main(String[] args) {
+        init();
         menuMain();
     }
-
     private static void menuMain() {
         int menu = 0;
         do {
@@ -23,6 +25,7 @@ public class Main {
                     //TODO: menuPersonalizar();
                     break;
                 case 3 :
+                    mostrarCompras();
                     break;
                 
                 case 4 :
@@ -33,9 +36,10 @@ public class Main {
     }
 
     private static void menuComprar() {
+        CarroCompra carro = crearCarro();
         int menu = 0;
         do {
-            menu = Utilities.leerIntLimites(
+            menu = Utilities.leerIntLimites(//TODO:Añadir opcion borrar productos del carro
                     "Menu comprar\n1. Ver categorias\n2. Finalizar compra\n3. Ver carrito\n4. Atras", 1, 4);
             switch (menu) {
                 case 1:
@@ -82,8 +86,7 @@ public class Main {
 
     private static void menuFinCompra() {
         if (CarroCompra.carrito.finCompra()) {
-            System.out
-                    .println("La compra se ha finalizado el precio total ha sido " + CarroCompra.carrito.precioTotal());
+            System.out.println("La compra se ha finalizado el precio total ha sido " + CarroCompra.carrito.precioTotal());
             System.out.println("Resumen de la compra");
             System.out.println("Compra numero " + CarroCompra.carrito.getId());
             mostrarProductos(CarroCompra.getCompras().get(CarroCompra.getCompras().size() - 1).getCarro());
@@ -140,7 +143,7 @@ public class Main {
 
     private static void mostrarProductos(ArrayList<Producto> ap) {
         for (int i = 0; i < ap.size(); i++) {
-            System.out.println(i + ap.get(i).toString());
+            System.out.println(i+" "+ap.get(i).getClass().getSimpleName()+" "+ap.get(i).getMarca());
         }
     }
 
@@ -157,4 +160,13 @@ public class Main {
         }
     }
 
+    private static CarroCompra crearCarro(){
+        return new CarroCompra();
+    }
+
+    private static void init(){
+        Tienda.tienda.initPC();
+        Tienda.tienda.initPerifericos();
+        Tienda.tienda.initComponentes();
+    }
 }

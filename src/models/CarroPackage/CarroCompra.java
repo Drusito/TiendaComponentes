@@ -8,12 +8,10 @@ public class CarroCompra {
     /**
      * Crear objeto estatico 
      */
-    public static CarroCompra carrito = new CarroCompra();
 
     private int id;
-    private ArrayList<Producto> carro;
+    private final ArrayList<Producto> carro;
     private static int contador = 1;
-    private static ArrayList<CarroCompra> compras = new ArrayList<>();
 
     /**
      * Constructor
@@ -21,8 +19,10 @@ public class CarroCompra {
      * privado porque el objeto es estatico y el mismo para todos
      * 
      */
-    private CarroCompra() {
+    public CarroCompra() {
+        this.id = CarroCompra.contador;
         this.carro = new ArrayList<>();
+        CarroCompra.contador++;
     }
 
     /**
@@ -46,8 +46,10 @@ public class CarroCompra {
      */
     public float precioTotal() {
         float total = 0;
-        for (Producto p : this.carro) {
-            total += p.getPrecio();
+        if(this.carro.size() > 0) {
+            for (Producto p : this.carro) {
+                total += p.getPrecio();
+            }
         }
         return total;
     }
@@ -62,17 +64,13 @@ public class CarroCompra {
      * 
      * @return un boolean por si se puede añadir o no
      */
-    public boolean finCompra() {
+/*    public boolean finCompra() {
         if (this.carro.size() < 1) {
             return false;
         } else {
-            this.id = CarroCompra.contador;
-            CarroCompra.contador++;
-            CarroCompra.compras.add(this);
-            this.carro.clear();
             return true;
         }
-    }
+    }*/
     
     /* Getters */
 
@@ -80,10 +78,6 @@ public class CarroCompra {
      * El historial de compras
      * @return compras es la array list de todas las compras
      */
-    public static ArrayList<CarroCompra> getCompras() {
-        return CarroCompra.compras;
-    }
-
     /**
      * Getter de carro
      * @return array list de carro
@@ -95,4 +89,5 @@ public class CarroCompra {
     public int getId() {
         return this.id;
     }
+
 }
