@@ -73,6 +73,8 @@ public class Tienda {
     private void initPerifericos() {
         // CREAR 2 COMPONENTES DE CADA TIPO
 
+        Mouse mouse1 = new Mouse(29.90f, "Es un ratón inalámbrico para gaming LIGHTSPEED diseñado para un rendimiento excelente con las innovaciones tecnológicas más recientes a un precio asequible.", "Logitech", true, 4, true, 15000,(short)5);
+        Mouse mouse2 = new Mouse(44.89f, "Sea cual sea tu estilo de gaming, puedes ajustar el raton fácilmente según tus requisitos de uso, con perfiles personalizados para tus juegos.", "Logitech", true, 6,true, 25000,(short)7);
         Auricular auricular1 = new Auricular(60.35f,
                 "Facilitará tus comunicaciones con un uso sencillo gracias a su tecnología Plug&Play: conéctalo a tu ordenador y ya podrás empezar a chatear",
                 "Logitech", false, true, true);
