@@ -13,6 +13,7 @@ public class Portatil extends PC implements accionesPC{
 
     public Portatil(float precio, String descripcion, String marca, ArrayList<Componente> discoDuro, MemoriaGrafica memoriaGrafica, PlacaBase placaBase, Procesador procesador, ArrayList<Componente> ram, ArrayList<Componente> componentesPC, float pulgadasPantalla, boolean ventilacionExtra, boolean tieneHDMI, int puertosUSB, boolean tienePuertoAuriculares) {
         super(precio, descripcion, marca, discoDuro, memoriaGrafica, placaBase, procesador, ram, componentesPC);
+
         this.pulgadasPantalla = pulgadasPantalla;
         this.ventilacionExtra = ventilacionExtra;
         this.tieneHDMI = tieneHDMI;
@@ -97,4 +98,5 @@ public class Portatil extends PC implements accionesPC{
             }
         }
     }
+
 }

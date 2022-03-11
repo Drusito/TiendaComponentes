@@ -1,7 +1,7 @@
 package models.ProductoPackage.Categorias.ComponentesPackage;
 
 public class RAM extends Componente {
-    protected int memoriaGB;
+    private int memoriaGB;
 
     public RAM(float precio, String descripcion, String marca, int memoriaGB) {
         super(precio, descripcion, marca);

@@ -14,6 +14,7 @@ public abstract class PC extends Producto {
     protected ArrayList<Componente> componentesPC;
 
     public PC(float precio, String descripcion, String marca, ArrayList<Componente> discoDuro, MemoriaGrafica memoriaGrafica, PlacaBase placaBase, Procesador procesador, ArrayList<Componente> ram, ArrayList<Componente> componentesPC) {
+
         super(precio, descripcion, marca);
         this.discoDuro = discoDuro;
         this.memoriaGrafica = memoriaGrafica;
@@ -41,7 +42,23 @@ public abstract class PC extends Producto {
     public ArrayList<Componente> getRam() {
         return ram;
     }
-    /*HOLAAAAAAAAAAAAAAAAAAAAAAAA PRUEBAAAAAAAAAAAA*/
+    private ArrayList<Componente> addComponente(MemoriaGrafica memoriaGrafica, PlacaBase placaBase, Procesador procesador){
+        ArrayList<Componente> componentesNuevos = new ArrayList<>();
+        componentesNuevos.add(memoriaGrafica);
+        componentesNuevos.add(placaBase);
+        componentesNuevos.add(procesador);
+        return componentesNuevos;
+    }
+    private ArrayList<Componente> addArrayComponente(ArrayList<Componente> componentes){
+        this.componentesPC.addAll(componentes);
+        return this.componentesPC;
+    }
+    private ArrayList<Componente> addAllComponents (){
+        this.componentesPC = addComponente(memoriaGrafica,placaBase,procesador);
+        this.componentesPC = addArrayComponente(discoDuro);
+        this.componentesPC = addArrayComponente(ram);
+        return this.componentesPC;
+    }
     @Override
     public abstract String toString();
     protected abstract float obtenerPrecioTotal();
