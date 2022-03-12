@@ -5,23 +5,13 @@ import java.util.ArrayList;
 import models.ProductoPackage.Producto;
 
 public class CarroCompra {
-    /**
-     * Crear objeto estatico 
-     */
-    public static CarroCompra carrito = new CarroCompra();
-
-    private int id;
-    private ArrayList<Producto> carro;
-    private static int contador = 1;
-    private static ArrayList<CarroCompra> compras = new ArrayList<>();
+    private final ArrayList<Producto> carro;
 
     /**
      * Constructor
      * 
-     * privado porque el objeto es estatico y el mismo para todos
-     * 
      */
-    private CarroCompra() {
+    public CarroCompra() {
         this.carro = new ArrayList<>();
     }
 
@@ -46,44 +36,15 @@ public class CarroCompra {
      */
     public float precioTotal() {
         float total = 0;
-        for (Producto p : this.carro) {
-            total += p.getPrecio();
+        if(this.carro.size() > 0) {
+            for (Producto p : this.carro) {
+                total += p.getPrecio();
+            }
         }
         return total;
     }
     
-    /**
-     * Final de compra 
-     * Sobre escribe el indice autoincremental 
-     * Añade todo el objeto a la array list de las compras 
-     * Y vacia la array list de productos 
-     * 
-     * Vacia la array list de productos para poder reutilizar el mismo objeto de CarroCompra
-     * 
-     * @return un boolean por si se puede añadir o no
-     */
-    public boolean finCompra() {
-        if (this.carro.size() < 1) {
-            return false;
-        } else {
-            this.id = CarroCompra.contador;
-            CarroCompra.contador++;
-            CarroCompra.compras.add(this);
-            this.carro.clear();
-            return true;
-        }
-    }
-    
     /* Getters */
-
-    /**
-     * El historial de compras
-     * @return compras es la array list de todas las compras
-     */
-    public static ArrayList<CarroCompra> getCompras() {
-        return CarroCompra.compras;
-    }
-
     /**
      * Getter de carro
      * @return array list de carro
@@ -92,7 +53,4 @@ public class CarroCompra {
         return this.carro;
     }
 
-    public int getId() {
-        return this.id;
-    }
 }

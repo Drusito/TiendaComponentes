@@ -7,29 +7,23 @@ import java.util.ArrayList;
 public class Portatil extends PC implements accionesPC{
 
     protected final float pulgadasPantalla;
-    protected boolean ventilacionExtra;
     protected final boolean tieneHDMI;
     protected final int puertosUSB;
     protected final boolean tienePuertoAuriculares;
 
-    public Portatil(float precio, String descripcion, String marca, ArrayList<Componente> discoDuro, MemoriaGrafica memoriaGrafica, PlacaBase placaBase, Procesador procesador, ArrayList<Componente> ram, ArrayList<Componente> componentesPC, float pulgadasPantalla, boolean ventilacionExtra, boolean tieneHDMI, int puertosUSB, boolean tienePuertoAuriculares) {
-        super(precio, descripcion, marca, discoDuro, memoriaGrafica, placaBase, procesador, ram, componentesPC);
-
+    public Portatil(float precio, String descripcion, String marca, ArrayList<Componente> componentesPC, float pulgadasPantalla, boolean tieneHDMI, int puertosUSB, boolean tienePuertoAuriculares) {
+        super(precio, descripcion, marca, componentesPC);
         this.pulgadasPantalla = pulgadasPantalla;
-        this.ventilacionExtra = ventilacionExtra;
         this.tieneHDMI = tieneHDMI;
         this.puertosUSB = puertosUSB;
         this.tienePuertoAuriculares = tienePuertoAuriculares;
-        this.precio = obtenerPrecioTotal();
     }
+
     /**
      * Getters
      */
     public float getPulgadasPantalla() {
         return pulgadasPantalla;
-    }
-    public boolean isVentilacionExtra() {
-        return ventilacionExtra;
     }
     public boolean isTieneHDMI() {
         return tieneHDMI;
@@ -43,23 +37,12 @@ public class Portatil extends PC implements accionesPC{
         return tienePuertoAuriculares;
     }
 
-    /**
-     * Setters
-     */
-    public void setVentilacionExtra(boolean ventilacionExtra) {
-        this.ventilacionExtra = ventilacionExtra;
-    }
-
     @Override
     public String toString() {
         return "Portatil{" +
-                "discoDuro=" + discoDuro +
-                ", memoriaGrafica=" + memoriaGrafica +
-                ", placaBase=" + placaBase +
-                ", procesador=" + procesador +
-                ", ram=" + ram +
+                "MAX_SLOTS=" + MAX_SLOTS +
+                ", componentesPC=" + componentesPC +
                 ", pulgadasPantalla=" + pulgadasPantalla +
-                ", ventilacionExtra=" + ventilacionExtra +
                 ", tieneHDMI=" + tieneHDMI +
                 ", puertosUSB=" + puertosUSB +
                 ", tienePuertoAuriculares=" + tienePuertoAuriculares +
@@ -68,8 +51,6 @@ public class Portatil extends PC implements accionesPC{
                 ", descripcion='" + descripcion + '\'' +
                 ", marca='" + marca + '\'' +
                 '}';
-
-
     }
 
     @Override
@@ -92,24 +73,7 @@ public class Portatil extends PC implements accionesPC{
             if(componente.getClass()==componenteCambiar.getClass()){
                 componente = componenteCambiar;
             }
+        }
+    }
 
-
-        }
-    }
-    @Override
-    public boolean addRam(RAM ram) {
-        if(this.ram.size() > this.MAX_SLOTS){
-            return false;
-        }
-        this.ram.add(ram);
-        return true;
-    }
-    @Override
-    public boolean addDiscoDuro(DiscoDuro discoDuro) {
-        if(this.discoDuro.size() > this.MAX_SLOTS){
-            return false;
-        }
-        this.discoDuro.add(discoDuro);
-        return true;
-    }
 }
