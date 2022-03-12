@@ -8,34 +8,17 @@ import models.ProductoPackage.Categorias.Perifericos.Teclado;
 import java.util.ArrayList;
 
 public class Sobremesa extends PC implements accionesPC{
-    protected Pantalla pantalla;
-    protected Teclado teclado;
-    protected Mouse mouse;
     protected boolean refrigeracionLiquida;
 
-    public Sobremesa(float precio, String descripcion, String marca, ArrayList<Componente> discoDuro, MemoriaGrafica memoriaGrafica, PlacaBase placaBase, Procesador procesador, ArrayList<Componente> ram, ArrayList<Componente> componentesPC, Pantalla pantalla, Teclado teclado, Mouse mouse, boolean refrigeracionLiquida) {
-        super(precio, descripcion, marca, discoDuro, memoriaGrafica, placaBase, procesador, ram, componentesPC);
-        this.pantalla = pantalla;
-        this.teclado = teclado;
-        this.mouse = mouse;
+    public Sobremesa(float precio, String descripcion, String marca, ArrayList<Componente> componentesPC, boolean refrigeracionLiquida) {
+        super(precio, descripcion, marca, componentesPC);
         this.refrigeracionLiquida = refrigeracionLiquida;
-        this.precio = obtenerPrecioTotal();
     }
 
     /**
      * Getters
      */
-    public Pantalla getPantalla() {
-        return pantalla;
-    }
 
-    public Teclado getTeclado() {
-        return teclado;
-    }
-
-    public Mouse getMouse() {
-        return mouse;
-    }
 
     public boolean isRefrigeracionLiquida() {
         return refrigeracionLiquida;
@@ -43,17 +26,7 @@ public class Sobremesa extends PC implements accionesPC{
     /**
      * Setters
      */
-    public void setPantalla(Pantalla pantalla) {
-        this.pantalla = pantalla;
-    }
 
-    public void setTeclado(Teclado teclado) {
-        this.teclado = teclado;
-    }
-
-    public void setMouse(Mouse mouse) {
-        this.mouse = mouse;
-    }
 
     public void setRefrigeracionLiquida(boolean refrigeracionLiquida) {
         this.refrigeracionLiquida = refrigeracionLiquida;
@@ -62,14 +35,8 @@ public class Sobremesa extends PC implements accionesPC{
     @Override
     public String toString() {
         return "Sobremesa{" +
-                "discoDuro=" + discoDuro +
-                ", memoriaGrafica=" + memoriaGrafica +
-                ", placaBase=" + placaBase +
-                ", procesador=" + procesador +
-                ", ram=" + ram +
-                ", pantalla=" + pantalla +
-                ", teclado=" + teclado +
-                ", mouse=" + mouse +
+                "MAX_SLOTS=" + MAX_SLOTS +
+                ", componentesPC=" + componentesPC +
                 ", refrigeracionLiquida=" + refrigeracionLiquida +
                 ", id=" + id +
                 ", precio=" + precio +
@@ -103,20 +70,5 @@ public class Sobremesa extends PC implements accionesPC{
         }
     }
 
-    @Override
-    public boolean addRam(RAM ram) {
-        if(this.ram.size() > this.MAX_SLOTS){
-            return false;
-        }
-        this.ram.add(ram);
-        return true;
-    }
-    @Override
-    public boolean addDiscoDuro(DiscoDuro discoDuro) {
-        if(this.discoDuro.size() > this.MAX_SLOTS){
-            return false;
-        }
-        this.discoDuro.add(discoDuro);
-        return true;
-    }
+
 }
