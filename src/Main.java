@@ -1,7 +1,10 @@
 import java.util.ArrayList;
 
 import com.oracle.xmlns.internal.webservices.jaxws_databinding.SoapBindingParameterStyle;
+import com.sun.org.apache.regexp.internal.RE;
 import models.CarroPackage.CarroCompra;
+import models.ProductoPackage.Categorias.ComponentesPackage.*;
+import models.ProductoPackage.Categorias.PCPackage.PC;
 import models.ProductoPackage.Producto;
 import models.Tienda.Tienda;
 import models.Utils.Utilities;
@@ -34,6 +37,22 @@ public class Main {
             }
         } while (menu != 4);
     }
+
+/*    Hacer metodo que tenga por parametro un arraylist de componentes.
+    Dentro del metodo Clasificar por instancia con instanceOF
+
+    Dentro del metodo crear una instancia de cada objeto vacia:
+    Ejemplo-> DiscoDuro discoduro;
+
+    Hacer For que recorra el arrayList, dentro del for condicional con if instance of DiscoDuro
+            discoDuro = esa posicion del arraylist
+
+    Esto con todos los componentes
+
+            Luegoc
+
+    Portatil portatilo = new portatil(TODOS LOS COMPONENTES)*/
+
 
     private static void menuComprar() {
         CarroCompra carro = crearCarro();
