@@ -114,19 +114,20 @@ public class Main {
             historialCompras.add(carro);
             System.out.println("\tResumen de la compra numero " + (historialCompras.size()));
             mostrarProductos(carro.getCarro());
+            System.out.println("Con el precio total de " + calcPrecioCarro(carro.getCarro()));
             carro = crearCarro();
         } else {
             System.out.println("Tu carrito esta vacio");
         }
     }
-
+    
     private static void menuQuitarPCarro() {
         int iProducto = 0;
         if (carro.getCarro().size() > 0) {
             System.out.println("Tu carrito");
             mostrarProductos(carro.getCarro());
-            iProducto = Utilities.leerIntLimites("Escribe el index del producto que quieres quitar del carro", 0,
-                    carro.getCarro().size()) - 1;
+            iProducto = Utilities.leerIntLimites("Escribe el index del producto que quieres quitar del carro o 0 para volver atras", 0,
+            carro.getCarro().size()) - 1;
             if (iProducto != -1) {
                 carro.quitarDelCarro(iProducto);
             }
@@ -139,6 +140,7 @@ public class Main {
         if (carro.getCarro().size() > 0) {
             System.out.println("Tu carrito");
             mostrarProductos(carro.getCarro());
+            System.out.println("Con el precio total de " + calcPrecioCarro(carro.getCarro()));
         } else {
             System.out.println("Tu carrito esta vacio");
         }
@@ -159,31 +161,63 @@ public class Main {
 
     private static void elegirPeriferico() {
         int iProducto = 0;
-        System.out.println("Esto son todos los perifericos");
-        mostrarProductos(Tienda.tienda.getPerifericos());
-        iProducto = Utilities.leerIntLimites(
-                "Escribe el indice del periferico que quieres añadir al carrito o 0 para volver atras", 0,
-                Tienda.tienda.getPerifericos().size()) - 1;
-        if (iProducto != -1) {
+        boolean ctrl;
+        do {
+            ctrl = true;
+            System.out.println("Esto son todos los perifericos");
+            mostrarProductos(Tienda.tienda.getPerifericos());
+            iProducto = Utilities.leerIntLimites(
+                    "Escribe el indice del periferico que quieres añadir al carrito o 0 para volver atras", 0,
+                    Tienda.tienda.getPerifericos().size()) - 1;
+            if (iProducto != -1) {
+                ctrl = añadirPerifericoAlCarro(iProducto);
+            }
+        } while (!ctrl);
+    }
+
+    private static boolean añadirPerifericoAlCarro(int iProducto) {
+        System.out.println("Informacion del periferico elegido");
+        System.out.println(Tienda.tienda.getPerifericos().get(iProducto).toString());
+        int iComprar = Utilities.leerIntLimites("Si quieres añadir el producto al carrito escribe 1 o si quieres volver atras escribe 0", 0, 1);
+        if (iComprar == 1) {
             carro.añadirAlCarro(Tienda.tienda.getPerifericos().get(iProducto));
+            System.out.println("Gracias por añadir " + Tienda.tienda.getPerifericos().get(iProducto).getClass().getSimpleName() + " " + Tienda.tienda.getPerifericos().get(iProducto).getMarca());
+            return true;
         }
+        return false;
     }
 
     private static void elegitComponente() {
         int iProducto = 0;
-        System.out.println("Esto son todos los componentes");
-        mostrarProductos(Tienda.tienda.getComponentes());
-        iProducto = Utilities.leerIntLimites(
-                "Escribe el indice del componente que quieres añadir al carrito o 0 para volver atras", 0,
-                Tienda.tienda.getComponentes().size()) - 1;
-        if (iProducto != -1) {
+        boolean ctrl;
+        do {
+            ctrl = true;
+            System.out.println("Esto son todos los componentes");
+            mostrarProductos(Tienda.tienda.getComponentes());
+            iProducto = Utilities.leerIntLimites(
+                    "Escribe el indice del componente del que quieres ver la informacion o 0 para volver atras", 0,
+                    Tienda.tienda.getComponentes().size()) - 1;
+            if (iProducto != -1) {
+                ctrl = añadirComponenteAlCarro(iProducto);
+            }
+        } while (!ctrl);
+    }
+
+    private static boolean añadirComponenteAlCarro(int iProducto) {
+        System.out.println("Informacion del perifgerico elegido");
+        System.out.println(Tienda.tienda.getComponentes().get(iProducto).toString());
+        int iComprar = Utilities.leerIntLimites("Si quieres añadir el producto al carrito escribe 1 o si quieres volver atras escribe 0", 0, 1);
+        if (iComprar == 1) {
             carro.añadirAlCarro(Tienda.tienda.getComponentes().get(iProducto));
+            System.out.println("Gracias por añadir " + Tienda.tienda.getComponentes().get(iProducto).getClass().getSimpleName() + " " + Tienda.tienda.getComponentes().get(iProducto).getMarca());
+            return true;
         }
+        return false;
     }
 
     private static void mostrarProductos(ArrayList<Producto> ap) {
         for (int i = 0; i < ap.size(); i++) {
-            System.out.println((i + 1) + " " + ap.get(i).getClass().getSimpleName() + " " + ap.get(i).getMarca());
+            System.out.println((i + 1) + " " + ap.get(i).getClass().getSimpleName() + " " + ap.get(i).getMarca() + " " + ap.get(i).getPrecio() + "€");
         }
     }
 
@@ -193,11 +227,20 @@ public class Main {
             for (int i = 0; i < historialCompras.size(); i++) {
                 System.out.println("\tCompra numero " + (i + 1));
                 mostrarProductos(historialCompras.get(i).getCarro());
+                System.out.println("Con el precio total de " + calcPrecioCarro(historialCompras.get(i).getCarro()));
             }
         } else {
             System.out.println("No tienes compras recientes");
         }
     }
+    
+        private static float calcPrecioCarro(ArrayList<Producto> carro) {
+            float total = 0;
+            for (Producto cc : carro) {
+                total += cc.getPrecio();
+            }
+            return total;
+        }
 
     private static CarroCompra crearCarro() {
         return new CarroCompra();
