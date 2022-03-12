@@ -21,8 +21,8 @@ public class Tienda {
 
     private final ArrayList<Producto> componentes;
     private final ArrayList<Componente> componentesPc;
-    private final ArrayList<Portatil> portatiles;
-    private final ArrayList<Sobremesa> sobremesas;
+    private final ArrayList<Producto> portatiles;
+    private final ArrayList<Producto> sobremesas;
     private final ArrayList<Producto> perifericos;
 
     private Tienda() {
@@ -72,8 +72,8 @@ public class Tienda {
     public void initPC() {
         this.portatiles.add(new Portatil(800, "", "ASUS", initPortatil1(),17.3f, true, 3, true));
         this.portatiles.add(new Portatil(900, "", "ASUS", initPortatil2(),17.3f, true, 3, true));
-        this.sobremesas.add(new Sobremesa(1300, "", "ASUS", initSobremesa1(),false));
-        this.sobremesas.add(new Sobremesa(1200, "", "ASUS", initSobremesa2(),true));
+        //this.sobremesas.add(new Sobremesa(1300, "", "ASUS", initSobremesa1(),false));
+        //this.sobremesas.add(new Sobremesa(1200, "", "ASUS", initSobremesa2(),true));
     }
 
     public ArrayList<Componente> initPortatil1(){
@@ -94,6 +94,7 @@ public class Tienda {
                 "Corsair", 16));
         return this.componentesPc;
     }
+
     public ArrayList<Componente> initPortatil2(){
         this.componentesPc.add(new DiscoDuro(87.10f,
                 "Es un solución para el almacenamiento sustancial que ofrece velocidades de lectura/escritura1 de hasta 2.100/1.700 MB/s, que entre triplica y cuadriplica la de los discos SSD basados en SATA",
@@ -110,6 +111,7 @@ public class Tienda {
         this.componentesPc.add(new Procesador(669.89f, "Un procesador que permite jugar así como crear.", "AMD", 16, 3.4f));
         return this.componentesPc;
     }
+    /*
     public ArrayList<Componente> initSobremesa1(){
         this.componentesPc.add(new DiscoDuro(35.90f,
                 "Versátiles. Rápidos. Fiables. La unidad de disco duro más increíble que haya conocido.", "Seagate",
@@ -144,7 +146,7 @@ public class Tienda {
         this.componentesPc.add(new Procesador(669.89f, "Un procesador que permite jugar así como crear.", "AMD", 16, 3.4f));
         return this.componentesPc;
     }
-
+*/
     public void initPerifericos() {
         // CREAR 2 COMPONENTES DE CADA TIPO
 
@@ -177,11 +179,11 @@ public class Tienda {
         return this.perifericos;
     }
 
-    public ArrayList<Portatil> getPortatiles() {
+    public ArrayList<Producto> getPortatiles() {
         return portatiles;
     }
 
-    public ArrayList<Sobremesa> getSobremesas() {
+    public ArrayList<Producto> getSobremesas() {
         return sobremesas;
     }
 

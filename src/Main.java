@@ -3,6 +3,8 @@ import java.util.ArrayList;
 import models.CarroPackage.CarroCompra;
 import models.ProductoPackage.Categorias.ComponentesPackage.*;
 import models.ProductoPackage.Categorias.PCPackage.PC;
+import models.ProductoPackage.Categorias.PCPackage.Portatil;
+import models.ProductoPackage.Categorias.PCPackage.Sobremesa;
 import models.ProductoPackage.Producto;
 import models.Tienda.Tienda;
 import models.Utils.Utilities;
@@ -27,7 +29,7 @@ public class Main {
                     menuComprar();
                     break;
                 case 2:
-                    // TODO: menuPersonalizar();
+                    menuPersonalizar();
                     break;
                 case 3:
                     menuMostrarCompras();
@@ -95,7 +97,7 @@ public class Main {
                     elegirPeriferico();
                     break;
                 case 2:
-                    //elegitPC();
+                    elegirPc();
                     break;
                 case 3:
                     elegitComponente();
@@ -215,6 +217,65 @@ public class Main {
         return false;
     }
 
+    private static void elegirPc() {
+        ArrayList<Producto> pcs = new ArrayList<>();
+        for (int i = 0; i < Tienda.tienda.getPortatiles().size(); i++) {
+            pcs.add(Tienda.tienda.getPortatiles().get(i));
+        }
+        for (int i = 0; i < Tienda.tienda.getSobremesas().size(); i++) {
+            pcs.add(Tienda.tienda.getSobremesas().get(i));
+        }
+        int iProducto = 0;
+        boolean ctrl;
+        do {
+            ctrl = true;
+            System.out.println("Estos son todos los pc");
+            mostrarProductos(pcs);
+            iProducto = Utilities.leerIntLimites(
+                    "Escribe el indice del pc del que quieres ver la informacion o 0 para volver atras", 0,
+                    pcs.size()) - 1;
+            if (iProducto != -1) {
+                ctrl = añadirPcAlCarro(pcs.get(iProducto));
+            }
+        } while (!ctrl);
+    }
+
+    private static boolean añadirPcAlCarro(Producto pc) {
+        System.out.println("Informacion del pc elegido");
+        System.out.println(pc);
+        int iComprar = Utilities.leerIntLimites("Si quieres añadir el producto al carrito escribe 1 o si quieres volver atras escribe 0", 0, 1);
+        if (iComprar == 1) {
+            carro.añadirAlCarro(pc);
+            System.out.println("Gracias por añadir " + pc.getClass().getSimpleName() + " " + pc.getMarca());
+            return true;
+        }
+        return false;
+    }
+/*
+    private static boolean añadirSobremesaAlCarrito(Sobremesa s) {
+        System.out.println("Informacion del pc elegido");
+        System.out.println(s);
+        int iComprar = Utilities.leerIntLimites("Si quieres añadir el producto al carrito escribe 1 o si quieres volver atras escribe 0", 0, 1);
+        if (iComprar == 1) {
+            carro.añadirAlCarro(s);
+            System.out.println("Gracias por añadir " + s.getClass().getSimpleName() + " " + s.getMarca());
+            return true;
+        }
+        return false;
+    }
+
+    private static boolean añadirPortatilAlCarrito(Portatil p) {
+        System.out.println("Informacion del pc elegido");
+        System.out.println(p);
+        int iComprar = Utilities.leerIntLimites("Si quieres añadir el producto al carrito escribe 1 o si quieres volver atras escribe 0", 0, 1);
+        if (iComprar == 1) {
+            carro.añadirAlCarro(p);
+            System.out.println("Gracias por añadir " + p.getClass().getSimpleName() + " " + p.getMarca());
+            return true;
+        }
+        return false;
+    }
+*/
     private static void mostrarProductos(ArrayList<Producto> ap) {
         for (int i = 0; i < ap.size(); i++) {
             System.out.println((i + 1) + " " + ap.get(i).getClass().getSimpleName() + " " + ap.get(i).getMarca() + " " + ap.get(i).getPrecio() + "€");
@@ -250,5 +311,48 @@ public class Main {
         Tienda.tienda.initPC();
         Tienda.tienda.initPerifericos();
         Tienda.tienda.initComponentes();
+    }
+
+    private static void menuPersonalizar(){
+        ArrayList<Producto> pcs = new ArrayList<>();
+        for (Producto p : carro.getCarro()) {
+            if(p instanceof PC){
+                pcs.add(p);
+            }
+        }
+        if(pcs.size() == 0){
+            System.out.println("No tienes ordenadores para personalizar.");
+            menuMain();
+        }
+        else{
+            System.out.println("Escoge el ordenador que quieras personalizar.");
+            for (int i = 0; i < pcs.size(); i++) {
+                System.out.println(i + " " + pcs.get(i));
+            }
+            int pcAPersonalizar = Utilities.leerIntLimites("Escribe el indice del pc o -1 para volver atrás", -1,pcs.size()-1);
+            if(pcAPersonalizar != -1){
+                personalizarOdenador((PC)pcs.get(pcAPersonalizar));
+            }
+            else{
+                menuMain();
+            }
+        }
+    }
+
+    private static void personalizarOdenador(PC pc){
+        Componente componenteACambiar;
+        Componente nuevoComponente;
+        System.out.println("Elige el componente que quieras cambiar");
+        for (int i = 0; i < pc.getComponentesPC().size(); i++) {
+            System.out.println(i + " " + pc.getComponentesPC().get(i));
+        }
+        int indice = Utilities.leerIntLimites("Escribe el índice del componente o -1 para volver atrás", -1, pc.getComponentesPC().size() - 1);
+        if(indice != 1){
+            componenteACambiar = pc.getComponentesPC().get(indice);
+            System.out.println("Elige un nuevo componente");
+        }
+        else{
+            menuPersonalizar();
+        }
     }
 }

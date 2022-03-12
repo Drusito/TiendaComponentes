@@ -47,6 +47,11 @@ public abstract class PC extends Producto {
         }
         return null;
     }
+
+    public ArrayList<Componente> getComponentesPC() {
+        return componentesPC;
+    }
+
     private ArrayList<Componente> addComponente(MemoriaGrafica memoriaGrafica, PlacaBase placaBase, Procesador procesador){
         ArrayList<Componente> componentesNuevos = new ArrayList<>();
         componentesNuevos.add(memoriaGrafica);
