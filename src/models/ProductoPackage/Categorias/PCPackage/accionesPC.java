@@ -9,9 +9,9 @@ import java.util.ArrayList;
 public interface accionesPC {
     void montarPc(ArrayList<Componente> componentes);
 
-    void cambiarPieza(Componente componenteCambio);
-
-    boolean addRam(RAM ram);
-
-    boolean addDiscoDuro(DiscoDuro discoDuro);
+    boolean cambiarPieza(int componenteACambiar, Componente nuevoComponente);
+//
+//    boolean addRam(RAM ram);
+//
+//    boolean addDiscoDuro(DiscoDuro discoDuro);
 }

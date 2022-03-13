@@ -7,6 +7,12 @@ public abstract class Producto {
     protected String descripcion;
     protected String marca;
 
+    /**
+     * Constructor
+     * @param precio
+     * @param descripcion
+     * @param marca
+     */
     public Producto(float precio, String descripcion, String marca) {
         Producto.contador++;
         this.id = Producto.contador;

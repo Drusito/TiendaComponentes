@@ -8,42 +8,60 @@ import java.util.ArrayList;
 public abstract class PC extends Producto {
     protected int MAX_SLOTS = 2;
 
-    protected ArrayList<Componente> discoDuro;
-    protected MemoriaGrafica memoriaGrafica;
-    protected PlacaBase placaBase;
-    protected Procesador procesador;
-    protected ArrayList<Componente> ram;
     protected ArrayList<Componente> componentesPC;
 
-    public PC(float precio, String descripcion, String marca, ArrayList<Componente> discoDuro, MemoriaGrafica memoriaGrafica, PlacaBase placaBase, Procesador procesador, ArrayList<Componente> ram, ArrayList<Componente> componentesPC) {
-
+    /**
+     * Constructor
+     * @param precio
+     * @param descripcion
+     * @param marca
+     * @param componentesPC
+     */
+    public PC(float precio, String descripcion, String marca, ArrayList<Componente> componentesPC) {
         super(precio, descripcion, marca);
-        this.discoDuro = discoDuro;
-        this.memoriaGrafica = memoriaGrafica;
-        this.placaBase = placaBase;
-        this.procesador = procesador;
-        this.ram = ram;
         this.componentesPC = componentesPC;
     }
-
     /**
      * Getters
      */
-    public ArrayList<Componente> getDiscoDuro() {
-        return discoDuro;
+    public DiscoDuro getDiscoDuro() {
+        for (Componente componente : this.componentesPC){
+            if(componente instanceof DiscoDuro) return (DiscoDuro) componente;
+        }
+        return null;
     }
     public MemoriaGrafica getMemoriaGrafica() {
-        return memoriaGrafica;
+        for (Componente componente : this.componentesPC){
+            if(componente instanceof MemoriaGrafica) return (MemoriaGrafica) componente;
+        }
+        return null;
     }
     public PlacaBase getPlacaBase() {
-        return placaBase;
+        for (Componente componente : this.componentesPC){
+            if(componente instanceof PlacaBase) return (PlacaBase) componente;
+        }
+        return null;
     }
     public Procesador getProcesador() {
-        return procesador;
+        for (Componente componente : this.componentesPC){
+            if(componente instanceof Procesador) return (Procesador) componente;
+        }
+        return null;
     }
-    public ArrayList<Componente> getRam() {
-        return ram;
+    public RAM getRam() {
+        for (Componente componente : this.componentesPC){
+            if(componente instanceof RAM) return (RAM) componente;
+        }
+        return null;
     }
+
+    /**
+     * Añadir 
+     * @param memoriaGrafica
+     * @param placaBase
+     * @param procesador
+     * @return
+     */
     private ArrayList<Componente> addComponente(MemoriaGrafica memoriaGrafica, PlacaBase placaBase, Procesador procesador){
         ArrayList<Componente> componentesNuevos = new ArrayList<>();
         componentesNuevos.add(memoriaGrafica);
@@ -55,12 +73,12 @@ public abstract class PC extends Producto {
         this.componentesPC.addAll(componentes);
         return this.componentesPC;
     }
-    private ArrayList<Componente> addAllComponents (){
+/*    private ArrayList<Componente> addAllComponents (){
         this.componentesPC = addComponente(memoriaGrafica,placaBase,procesador);
         this.componentesPC = addArrayComponente(discoDuro);
         this.componentesPC = addArrayComponente(ram);
         return this.componentesPC;
-    }
+    }*/
     @Override
     public abstract String toString();
     protected abstract float obtenerPrecioTotal();
