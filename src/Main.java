@@ -155,16 +155,13 @@ public class Main {
             if(componentesPcMontar.size() != 0) {
                 for (int i = 0; i < componentesPcMontar.size(); i++) {
                     if(Tienda.tienda.getComponentes().get(iComponente).getClass() == componentesPcMontar.get(i).getClass()/* && i != componentesPcMontar.size()-1*/){
-                        System.out.println(Tienda.tienda.getComponentes().get(iComponente).getClass()+"/"+componentesPcMontar.get(i).getClass());
                         System.out.println("ERROR: Ya tienes un componente de este tipo.");
                         duplicado = true;
                     }
                     else {
-                        System.out.println(Tienda.tienda.getComponentes().get(iComponente).getClass()+"/"+componentesPcMontar.get(i).getClass());
                         duplicado=false;
                     }
                 }
-                System.out.println(duplicado);
                 if(!duplicado){
                     componentesPcMontar.add((Componente) Tienda.tienda.getComponentes().get(iComponente));
                     numeroComponentes++;
