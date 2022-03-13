@@ -10,6 +10,20 @@ public class PlacaBase extends Componente{
     private boolean ethernet;
     private boolean wifi;
 
+    /**
+     * Constructor
+     * @param precio
+     * @param descripcion
+     * @param marca
+     * @param numMaxProcesadores
+     * @param puertosRam
+     * @param puertosDiscoDuro
+     * @param aceptaSSD
+     * @param puertosUSB
+     * @param puertosJack
+     * @param ethernet
+     * @param wifi
+     */
     public PlacaBase(float precio, String descripcion, String marca, int numMaxProcesadores, int puertosRam, int puertosDiscoDuro, boolean aceptaSSD, int puertosUSB, int puertosJack, boolean ethernet, boolean wifi) {
         super(precio, descripcion, marca);
         this.numMaxProcesadores = numMaxProcesadores;

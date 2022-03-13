@@ -10,6 +10,13 @@ public abstract class PC extends Producto {
 
     protected ArrayList<Componente> componentesPC;
 
+    /**
+     * Constructor
+     * @param precio
+     * @param descripcion
+     * @param marca
+     * @param componentesPC
+     */
     public PC(float precio, String descripcion, String marca, ArrayList<Componente> componentesPC) {
         super(precio, descripcion, marca);
         this.componentesPC = componentesPC;
@@ -47,6 +54,14 @@ public abstract class PC extends Producto {
         }
         return null;
     }
+
+    /**
+     * Añadir 
+     * @param memoriaGrafica
+     * @param placaBase
+     * @param procesador
+     * @return
+     */
     private ArrayList<Componente> addComponente(MemoriaGrafica memoriaGrafica, PlacaBase placaBase, Procesador procesador){
         ArrayList<Componente> componentesNuevos = new ArrayList<>();
         componentesNuevos.add(memoriaGrafica);
