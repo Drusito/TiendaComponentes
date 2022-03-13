@@ -17,13 +17,17 @@ import models.ProductoPackage.Categorias.Perifericos.Teclado;
 import models.ProductoPackage.Categorias.PCPackage.Portatil;
 
 public class Tienda {
+    //Objeto static
     public static Tienda tienda = new Tienda();
 
     private final ArrayList<Producto> componentes;
     private final ArrayList<Producto> portatiles;
     private final ArrayList<Producto> sobremesas;
     private final ArrayList<Producto> perifericos;
-
+    
+    /**
+     * Contructor privado porque solo se usara el objeto static
+     */
     private Tienda() {
         this.componentes = new ArrayList<>();
         this.portatiles = new ArrayList<>();
@@ -31,6 +35,9 @@ public class Tienda {
         this.perifericos = new ArrayList<>();
     }
 
+    /**
+     * Init de componentes
+     */
     public void initComponentes() {
         this.componentes.add(new DiscoDuro(87.10f,
                 "Es un solución para el almacenamiento sustancial que ofrece velocidades de lectura/escritura1 de hasta 2.100/1.700 MB/s, que entre triplica y cuadriplica la de los discos SSD basados en SATA",
@@ -67,13 +74,20 @@ public class Tienda {
 
     }
 
+    /**
+     * init de pc
+     */
     public void initPC() {
         this.portatiles.add(new Portatil(800, "", "ASUS", initPortatil1(),17.3f, true, 3, true));
         this.portatiles.add(new Portatil(900, "", "ASUS", initPortatil2(),17.3f, true, 3, true));
         this.sobremesas.add(new Sobremesa(1300, "", "ASUS", initSobremesa1(),false));
-        this.sobremesas.add(new Sobremesa(1200, "", "ASUS", initSobremesa2(),true));
+        this.sobremesas.add(new Sobremesa( 1200, "", "ASUS", initSobremesa2(),true));
     }
 
+    /**
+     * Init de componentes de portatil 1
+     * @return componentes
+     */
     public ArrayList<Componente> initPortatil1(){
         ArrayList<Componente> auxComponentes = new ArrayList<>();
         auxComponentes.add(new DiscoDuro(35.90f,
@@ -94,6 +108,10 @@ public class Tienda {
         return auxComponentes;
     }
 
+    /**
+     * Init de componentes de portatil 2 
+     * @return componentes
+     */
     public ArrayList<Componente> initPortatil2(){
         ArrayList<Componente> auxComponentes = new ArrayList<>();
         auxComponentes.add(new DiscoDuro(87.10f,
@@ -112,6 +130,10 @@ public class Tienda {
         return auxComponentes;
     }
 
+    /**
+     * Init de componentes de sobremesa 1
+     * @return componenetes
+     */
     public ArrayList<Componente> initSobremesa1(){
         ArrayList<Componente> auxComponentes = new ArrayList<>();
         auxComponentes.add(new DiscoDuro(35.90f,
@@ -132,6 +154,10 @@ public class Tienda {
         return auxComponentes;
     }
 
+    /**
+     * Init de componentes de sobremesa 2
+     * @return componenetes
+     */
     public ArrayList<Componente> initSobremesa2(){
         ArrayList<Componente> auxComponentes = new ArrayList<>();
         auxComponentes.add(new DiscoDuro(87.10f,
@@ -150,9 +176,10 @@ public class Tienda {
         return auxComponentes;
     }
 
+    /**
+     * Init de perifericos
+     */
     public void initPerifericos() {
-        // CREAR 2 COMPONENTES DE CADA TIPO
-
         this.perifericos.add(new Mouse(29.90f, "Es un ratón inalámbrico para gaming LIGHTSPEED diseñado para un rendimiento excelente con las innovaciones tecnológicas más recientes a un precio asequible.", "Logitech", true, 4, true, 15000,(short)5));
         this.perifericos.add(new Mouse(44.89f, "Sea cual sea tu estilo de gaming, puedes ajustar el raton fácilmente según tus requisitos de uso, con perfiles personalizados para tus juegos.", "Logitech", true, 6,true, 25000,(short)7));
         this.perifericos.add(new Auricular(60.35f,

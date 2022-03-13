@@ -15,15 +15,6 @@ public class RAM extends Componente {
         this.memoriaGB = memoriaGB;
     }
 
-    /**
-     * Getter
-     */
-    public int getMemoriaGB() {
-        return memoriaGB;
-    }
-
-    //No hace falta Setter
-
     @Override
     public String toString() {
         return "RAM{" +

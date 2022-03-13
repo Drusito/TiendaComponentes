@@ -29,20 +29,6 @@ public class CarroCompra {
     public void quitarDelCarro(int i) {
         this.carro.remove(i);
     }
-
-    /**
-     * Precio total de todos los productos del carrito
-     * @return el precio final
-     */
-    public float precioTotal() {
-        float total = 0;
-        if(this.carro.size() > 0) {
-            for (Producto p : this.carro) {
-                total += p.getPrecio();
-            }
-        }
-        return total;
-    }
     
     /**
      * Getter de carro

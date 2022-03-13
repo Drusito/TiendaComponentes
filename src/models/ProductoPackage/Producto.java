@@ -9,6 +9,7 @@ public abstract class Producto {
 
     /**
      * Constructor
+     * 
      * @param precio
      * @param descripcion
      * @param marca
@@ -23,11 +24,13 @@ public abstract class Producto {
 
     /**
      * Getters
+     * 
      * @return
      */
     public String getMarca() {
         return marca;
     }
+
     public static int getContador() {
         return contador;
     }
@@ -43,12 +46,14 @@ public abstract class Producto {
     public String getDescripcion() {
         return descripcion;
     }
+
     /**
      * Setters
      */
     public void setPrecio(float precio) {
         this.precio = precio;
     }
+
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }

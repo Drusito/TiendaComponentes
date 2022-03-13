@@ -22,65 +22,15 @@ public abstract class PC extends Producto {
         this.componentesPC = componentesPC;
     }
 
+    /**
+     * Getter de componentes del pc
+     * @return los componentes del pc
+     */
     public ArrayList<Componente> getComponentesPC() {
         return componentesPC;
     }
 
-    /**
-     * Getters
-     */
-
-
-
-    public DiscoDuro getDiscoDuro() {
-        for (Componente componente : this.componentesPC){
-            if(componente instanceof DiscoDuro) return (DiscoDuro) componente;
-        }
-        return null;
-    }
-    public MemoriaGrafica getMemoriaGrafica() {
-        for (Componente componente : this.componentesPC){
-            if(componente instanceof MemoriaGrafica) return (MemoriaGrafica) componente;
-        }
-        return null;
-    }
-    public PlacaBase getPlacaBase() {
-        for (Componente componente : this.componentesPC){
-            if(componente instanceof PlacaBase) return (PlacaBase) componente;
-        }
-        return null;
-    }
-    public Procesador getProcesador() {
-        for (Componente componente : this.componentesPC){
-            if(componente instanceof Procesador) return (Procesador) componente;
-        }
-        return null;
-    }
-    public RAM getRam() {
-        for (Componente componente : this.componentesPC){
-            if(componente instanceof RAM) return (RAM) componente;
-        }
-        return null;
-    }
-
-    /**
-     * Añadir 
-     * @param memoriaGrafica
-     * @param placaBase
-     * @param procesador
-     * @return
-     */
-    private ArrayList<Componente> addComponente(MemoriaGrafica memoriaGrafica, PlacaBase placaBase, Procesador procesador){
-        ArrayList<Componente> componentesNuevos = new ArrayList<>();
-        componentesNuevos.add(memoriaGrafica);
-        componentesNuevos.add(placaBase);
-        componentesNuevos.add(procesador);
-        return componentesNuevos;
-    }
-    private ArrayList<Componente> addArrayComponente(ArrayList<Componente> componentes){
-        this.componentesPC.addAll(componentes);
-        return this.componentesPC;
-    }
+    // metodos abstractos
     @Override
     public abstract String toString();
     protected abstract float obtenerPrecioTotal();

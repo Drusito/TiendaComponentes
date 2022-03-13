@@ -18,18 +18,6 @@ public class Procesador extends Componente{
         this.frecuenciaHz = frecuenciaHz;
     }
 
-    /**
-     * Getters
-     */
-    public int getNumeroDeNucleos() {
-        return numeroDeNucleos;
-    }
-
-    public float getFrecuenciaHz() {
-        return frecuenciaHz;
-    }
-    //No necesita setters
-
     @Override
     public String toString() {
         return "Procesador{" +

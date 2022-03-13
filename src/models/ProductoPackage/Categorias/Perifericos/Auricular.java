@@ -19,24 +19,6 @@ public class Auricular extends Periferico{
         this.tieneConexionUSB = tieneConexionUSB;
     }
 
-    //GETTERS
-
-    /**
-     * Método para saber si el auricular tiene micrófono integrado o no
-     * @return boolean true (si tiene micro) / false (si no tiene)
-     */
-    public boolean tieneMicro() {
-        return tieneMicro;
-    }
-
-    /**
-     * Método para saber si el auricular tiene conexión USB o no
-     * @return boolean true (si tiene conexión USB) / false (si no tiene)
-     */
-    public boolean tieneConexionUSB() {
-        return tieneConexionUSB;
-    }
-
     /**
      * Método para mostrar los valores de los atributos del auricular
      * @return string con los valores de los atributos del auricular

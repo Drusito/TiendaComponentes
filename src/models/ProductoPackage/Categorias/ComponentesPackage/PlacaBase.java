@@ -36,51 +36,6 @@ public class PlacaBase extends Componente{
         this.wifi = wifi;
     }
 
-    /**
-     * Getters
-     */
-    public int getNumMaxProcesadores() {
-        return numMaxProcesadores;
-    }
-
-    public int getPuertosRam() {
-        return puertosRam;
-    }
-
-    public int getPuertosDiscoDuro() {
-        return puertosDiscoDuro;
-    }
-
-    public boolean isAceptaSSD() {
-        return aceptaSSD;
-    }
-
-    public int getPuertosUSB() {
-        return puertosUSB;
-    }
-
-    public int getPuertosJack() {
-        return puertosJack;
-    }
-
-    public boolean isEthernet() {
-        return ethernet;
-    }
-
-    public boolean isWifi() {
-        return wifi;
-    }
-    /**
-     * Setters
-     */
-    public void setEthernet(boolean ethernet) {
-        this.ethernet = ethernet;
-    }
-
-    public void setWifi(boolean wifi) {
-        this.wifi = wifi;
-    }
-
     @Override
     public String toString() {
         return "PlacaBase{" +

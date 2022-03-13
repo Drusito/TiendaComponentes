@@ -15,19 +15,6 @@ public class MemoriaGrafica extends Componente {
         this.memoriaDedicadaGB = memoriaDedicadaGB;
     }
 
-    /**
-     * Getters
-     */
-    public int getMemoriaDedicadaGB() {
-        return memoriaDedicadaGB;
-    }
-    /**
-     * Setters
-     */
-    public void setMemoriaDedicadaGB(int memoriaDedicadaGB) {
-        this.memoriaDedicadaGB = memoriaDedicadaGB;
-    }
-
     @Override
     public String toString() {
         return "MemoriaGrafica{" +
