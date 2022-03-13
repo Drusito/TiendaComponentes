@@ -42,22 +42,6 @@ public class Main {
         } while (menu != 4);
     }
 
-/*    Hacer metodo que tenga por parametro un arraylist de componentes.
-    Dentro del metodo Clasificar por instancia con instanceOF
-
-    Dentro del metodo crear una instancia de cada objeto vacia:
-    Ejemplo-> DiscoDuro discoduro;
-
-    Hacer For que recorra el arrayList, dentro del for condicional con if instance of DiscoDuro
-            discoDuro = esa posicion del arraylist
-
-    Esto con todos los componentes
-
-            Luegoc
-
-    Portatil portatilo = new portatil(TODOS LOS COMPONENTES)*/
-
-
     private static void menuComprar() {
         int menu = 0;
         do {
@@ -200,19 +184,6 @@ public class Main {
         }
     }
 
-    /* private static void elegitPC() {
-        int iProducto = 0;
-        System.out.println("Esto son todos los pc");
-        mostrarProductos(Tienda.tienda.getPCs());
-        iProducto = Utilities.leerIntLimites(
-                "Escribe el indice del portatil o equipo sobre mesa premontado que quieres añadir al carrito o 0 para volver atras (Tambien puedes personalizarte un pc desde el menu principal)",
-                0,
-                Tienda.tienda.getPCs().size()) - 1;
-        if (iProducto != -1) {
-            carro.añadirAlCarro(Tienda.tienda.getPCs().get(iProducto));
-        }
-    } */
-
     private static void elegirPeriferico() {
         int iProducto = 0;
         boolean ctrl;
@@ -303,31 +274,6 @@ public class Main {
         }
         return false;
     }
-/*
-    private static boolean añadirSobremesaAlCarrito(Sobremesa s) {
-        System.out.println("Informacion del pc elegido");
-        System.out.println(s);
-        int iComprar = Utilities.leerIntLimites("Si quieres añadir el producto al carrito escribe 1 o si quieres volver atras escribe 0", 0, 1);
-        if (iComprar == 1) {
-            carro.añadirAlCarro(s);
-            System.out.println("Gracias por añadir " + s.getClass().getSimpleName() + " " + s.getMarca());
-            return true;
-        }
-        return false;
-    }
-
-    private static boolean añadirPortatilAlCarrito(Portatil p) {
-        System.out.println("Informacion del pc elegido");
-        System.out.println(p);
-        int iComprar = Utilities.leerIntLimites("Si quieres añadir el producto al carrito escribe 1 o si quieres volver atras escribe 0", 0, 1);
-        if (iComprar == 1) {
-            carro.añadirAlCarro(p);
-            System.out.println("Gracias por añadir " + p.getClass().getSimpleName() + " " + p.getMarca());
-            return true;
-        }
-        return false;
-    }
-*/
     private static void mostrarProductos(ArrayList<Producto> ap) {
         for (int i = 0; i < ap.size(); i++) {
             System.out.println((i + 1) + " " + ap.get(i).getClass().getSimpleName() + " " + ap.get(i).getMarca() + " " + ap.get(i).getPrecio() + "€");
@@ -419,6 +365,4 @@ public class Main {
             menuPersonalizar();
         }
     }
-
-    //private static void montarPc()
 }

@@ -1,9 +1,6 @@
 package models.ProductoPackage.Categorias.PCPackage;
 
 import models.ProductoPackage.Categorias.ComponentesPackage.*;
-import models.ProductoPackage.Categorias.Perifericos.Mouse;
-import models.ProductoPackage.Categorias.Perifericos.Pantalla;
-import models.ProductoPackage.Categorias.Perifericos.Teclado;
 
 import java.util.ArrayList;
 
@@ -14,23 +11,6 @@ public class Sobremesa extends PC implements accionesPC{
         super(precio, descripcion, marca, componentesPC);
         this.refrigeracionLiquida = refrigeracionLiquida;
         this.precio = obtenerPrecioTotal();
-    }
-
-    /**
-     * Getters
-     */
-
-
-    public boolean isRefrigeracionLiquida() {
-        return refrigeracionLiquida;
-    }
-    /**
-     * Setters
-     */
-
-
-    public void setRefrigeracionLiquida(boolean refrigeracionLiquida) {
-        this.refrigeracionLiquida = refrigeracionLiquida;
     }
 
     @Override
@@ -58,11 +38,6 @@ public class Sobremesa extends PC implements accionesPC{
     }
 
     @Override
-    public void montarPc(ArrayList<Componente> componentes) {
-        this.componentesPC.addAll(componentes);
-    }
-
-    @Override
     public boolean cambiarPieza(int componenteACambiar, Componente nuevoComponente) {
         if(this.componentesPC.get(componenteACambiar).getClass()==nuevoComponente.getClass()){
             this.componentesPC.set(componenteACambiar, nuevoComponente);
@@ -70,6 +45,4 @@ public class Sobremesa extends PC implements accionesPC{
         }
         return false;
     }
-
-
 }

@@ -64,20 +64,6 @@ public class Portatil extends PC implements accionesPC{
         }
         return precioTotal;
     }
-    @Override
-    public void montarPc(ArrayList<Componente> componentes) {
-        this.componentesPC.addAll(componentes);
-    }
-    /*
-    @Override
-    public boolean cambiarPieza(Componente componenteCambiar) {
-        for (Componente componente : this.componentesPC){
-            if(componente.getClass()==componenteCambiar.getClass()){
-                componente = componenteCambiar;
-            }
-        }
-    }
-*/
 
     @Override
     public boolean cambiarPieza(int componenteACambiar, Componente nuevoComponente) {
