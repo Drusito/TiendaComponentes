@@ -21,9 +21,17 @@ public abstract class PC extends Producto {
         super(precio, descripcion, marca);
         this.componentesPC = componentesPC;
     }
+
+    public ArrayList<Componente> getComponentesPC() {
+        return componentesPC;
+    }
+
     /**
      * Getters
      */
+
+
+
     public DiscoDuro getDiscoDuro() {
         for (Componente componente : this.componentesPC){
             if(componente instanceof DiscoDuro) return (DiscoDuro) componente;
