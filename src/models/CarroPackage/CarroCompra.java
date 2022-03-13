@@ -44,7 +44,6 @@ public class CarroCompra {
         return total;
     }
     
-    /* Getters */
     /**
      * Getter de carro
      * @return array list de carro

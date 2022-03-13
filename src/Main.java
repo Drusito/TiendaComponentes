@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import models.CarroPackage.CarroCompra;
 import models.ProductoPackage.Categorias.ComponentesPackage.*;
 import models.ProductoPackage.Categorias.PCPackage.PC;
-import models.ProductoPackage.Categorias.PCPackage.Portatil;
 import models.ProductoPackage.Categorias.PCPackage.Sobremesa;
 import models.ProductoPackage.Categorias.PCPackage.accionesPC;
 import models.ProductoPackage.Producto;
@@ -98,10 +97,10 @@ public class Main {
                     elegirPeriferico();
                     break;
                 case 2:
-                    elegirPc();
+                    menuPc();
                     break;
                 case 3:
-                    elegitComponente();
+                    elegirComponente();
                     break;
                 case 4:
                     System.out.println("Volviendo atras...");
@@ -123,7 +122,59 @@ public class Main {
             System.out.println("Tu carrito esta vacio");
         }
     }
-    
+    private static void menuPc(){
+        int menu = 0;
+        do {
+            menu = Utilities.leerIntLimites(
+                    "Menu PC\n\tEscoge una Opcion\n1. Elegir PC montado.\n2. Montar PC\n3. Atras", 1, 3);
+            switch (menu) {
+                case 1:
+                    elegirPc();
+                    break;
+                case 2:
+                    montarPC();
+                    break;
+                case 4:
+                    System.out.println("Volviendo atras...");
+                    break;
+            }
+        } while (menu != 3);
+    }
+    private static void montarPC(){
+        ArrayList<Componente> componentesPcMontar = new ArrayList<>();
+        int numeroMaximoComponentes = 5;
+        int numeroComponentes = 0;
+        int iComponente;
+        boolean duplicado = false;
+        while (numeroComponentes<numeroMaximoComponentes){
+            System.out.println("Tienes "+numeroComponentes+"/"+numeroMaximoComponentes+" componentes.");
+            System.out.println();
+            mostrarProductos(Tienda.tienda.getComponentes());
+            iComponente = Utilities.leerIntLimites("Elige un componente: ", 1, Tienda.tienda.getComponentes().size()-1);
+            iComponente--;
+            if(componentesPcMontar.size() != 0) {
+                for (int i = 0; i < componentesPcMontar.size(); i++) {
+                    if(Tienda.tienda.getComponentes().get(iComponente).getClass() == componentesPcMontar.get(i).getClass()/* && i != componentesPcMontar.size()-1*/){
+                        System.out.println("ERROR: Ya tienes un componente de este tipo.");
+                        duplicado = true;
+                    }
+                    else {
+                        duplicado=false;
+                    }
+                }
+                if(!duplicado){
+                    componentesPcMontar.add((Componente) Tienda.tienda.getComponentes().get(iComponente));
+                    numeroComponentes++;
+                }
+            }
+            else {
+                componentesPcMontar.add((Componente) Tienda.tienda.getComponentes().get(iComponente));
+                numeroComponentes++;
+            }
+
+        }
+        añadirPcAlCarro(new Sobremesa(0, "Pc Montado por ti mismo campeon!", "ASUS", componentesPcMontar,false));
+    }
     private static void menuQuitarPCarro() {
         int iProducto = 0;
         if (carro.getCarro().size() > 0) {
@@ -190,12 +241,12 @@ public class Main {
         return false;
     }
 
-    private static void elegitComponente() {
+    private static void elegirComponente() {
         int iProducto = 0;
         boolean ctrl;
         do {
             ctrl = true;
-            System.out.println("Esto son todos los componentes");
+            System.out.println("Componentes:");
             mostrarProductos(Tienda.tienda.getComponentes());
             iProducto = Utilities.leerIntLimites(
                     "Escribe el indice del componente del que quieres ver la informacion o 0 para volver atras", 0,
@@ -230,7 +281,7 @@ public class Main {
         boolean ctrl;
         do {
             ctrl = true;
-            System.out.println("Estos son todos los pc");
+            System.out.println("PCs:");
             mostrarProductos(pcs);
             iProducto = Utilities.leerIntLimites(
                     "Escribe el indice del pc del que quieres ver la informacion o 0 para volver atras", 0,
@@ -351,6 +402,7 @@ public class Main {
         if(indice1 != -1){
             System.out.println("Elige un nuevo componente");
             for (int i = 0; i < Tienda.tienda.getComponentes().size(); i++) {
+                if(((PC) pc).getComponentesPC().get(indice1).getClass() == Tienda.tienda.getComponentes().get(i).getClass())
                 System.out.println(i + " " + Tienda.tienda.getComponentes().get(i));
             }
             int indice2 = Utilities.leerIntLimites("Escribe el índice del nuevo componente o -1 para volver atrás", -1, Tienda.tienda.getComponentes().size() - 1);

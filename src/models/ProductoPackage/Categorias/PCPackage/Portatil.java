@@ -17,6 +17,7 @@ public class Portatil extends PC implements accionesPC{
         this.tieneHDMI = tieneHDMI;
         this.puertosUSB = puertosUSB;
         this.tienePuertoAuriculares = tienePuertoAuriculares;
+        this.precio = obtenerPrecioTotal();
     }
 
     /**
@@ -80,6 +81,10 @@ public class Portatil extends PC implements accionesPC{
 
     @Override
     public boolean cambiarPieza(int componenteACambiar, Componente nuevoComponente) {
-        return true;
+        if(this.componentesPC.get(componenteACambiar).getClass()==nuevoComponente.getClass()){
+            this.componentesPC.set(componenteACambiar, nuevoComponente);
+            return true;
+        }
+        return false;
     }
 }
