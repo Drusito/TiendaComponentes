@@ -17,6 +17,7 @@ public class Portatil extends PC implements accionesPC{
         this.tieneHDMI = tieneHDMI;
         this.puertosUSB = puertosUSB;
         this.tienePuertoAuriculares = tienePuertoAuriculares;
+        this.precio = obtenerPrecioTotal();
     }
 
     /**

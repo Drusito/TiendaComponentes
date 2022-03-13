@@ -13,6 +13,7 @@ public class Sobremesa extends PC implements accionesPC{
     public Sobremesa(float precio, String descripcion, String marca, ArrayList<Componente> componentesPC, boolean refrigeracionLiquida) {
         super(precio, descripcion, marca, componentesPC);
         this.refrigeracionLiquida = refrigeracionLiquida;
+        this.precio = obtenerPrecioTotal();
     }
 
     /**
