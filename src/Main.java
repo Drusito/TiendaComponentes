@@ -5,6 +5,7 @@ import models.ProductoPackage.Categorias.ComponentesPackage.*;
 import models.ProductoPackage.Categorias.PCPackage.PC;
 import models.ProductoPackage.Categorias.PCPackage.Portatil;
 import models.ProductoPackage.Categorias.PCPackage.Sobremesa;
+import models.ProductoPackage.Categorias.PCPackage.accionesPC;
 import models.ProductoPackage.Producto;
 import models.Tienda.Tienda;
 import models.Utils.Utilities;
@@ -331,7 +332,7 @@ public class Main {
             }
             int pcAPersonalizar = Utilities.leerIntLimites("Escribe el indice del pc o -1 para volver atrás", -1,pcs.size()-1);
             if(pcAPersonalizar != -1){
-                personalizarOdenador((PC)pcs.get(pcAPersonalizar));
+                personalizarOdenador((accionesPC) pcs.get(pcAPersonalizar));
             }
             else{
                 menuMain();
@@ -339,20 +340,33 @@ public class Main {
         }
     }
 
-    private static void personalizarOdenador(PC pc){
+    private static void personalizarOdenador(accionesPC pc){
         Componente componenteACambiar;
         Componente nuevoComponente;
         System.out.println("Elige el componente que quieras cambiar");
-        for (int i = 0; i < pc.getComponentesPC().size(); i++) {
-            System.out.println(i + " " + pc.getComponentesPC().get(i));
+        for (int i = 0; i < ((PC) pc).getComponentesPC().size(); i++) {
+            System.out.println(i + " " + ((PC) pc).getComponentesPC().get(i));
         }
-        int indice = Utilities.leerIntLimites("Escribe el índice del componente o -1 para volver atrás", -1, pc.getComponentesPC().size() - 1);
-        if(indice != 1){
-            componenteACambiar = pc.getComponentesPC().get(indice);
+        int indice1 = Utilities.leerIntLimites("Escribe el índice del componente o -1 para volver atrás", -1, ((PC) pc).getComponentesPC().size() - 1);
+        if(indice1 != -1){
             System.out.println("Elige un nuevo componente");
+            for (int i = 0; i < Tienda.tienda.getComponentes().size(); i++) {
+                System.out.println(i + " " + Tienda.tienda.getComponentes().get(i));
+            }
+            int indice2 = Utilities.leerIntLimites("Escribe el índice del nuevo componente o -1 para volver atrás", -1, Tienda.tienda.getComponentes().size() - 1);
+            if(indice2 != -1 ){
+                nuevoComponente = (Componente) Tienda.tienda.getComponentes().get(indice2);
+                if(!pc.cambiarPieza(indice1, nuevoComponente)){
+                    System.out.println("ERROR. Los componentes no son del mismo tipo.");
+                    menuPersonalizar();
+                }
+            }
+            menuPersonalizar();
         }
         else{
             menuPersonalizar();
         }
     }
+
+    //private static void montarPc()
 }
