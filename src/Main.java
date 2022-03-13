@@ -351,6 +351,7 @@ public class Main {
         if(indice1 != -1){
             System.out.println("Elige un nuevo componente");
             for (int i = 0; i < Tienda.tienda.getComponentes().size(); i++) {
+                if(((PC) pc).getComponentesPC().get(indice1).getClass() == Tienda.tienda.getComponentes().get(i).getClass())
                 System.out.println(i + " " + Tienda.tienda.getComponentes().get(i));
             }
             int indice2 = Utilities.leerIntLimites("Escribe el índice del nuevo componente o -1 para volver atrás", -1, Tienda.tienda.getComponentes().size() - 1);
