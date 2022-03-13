@@ -81,14 +81,7 @@ public abstract class PC extends Producto {
         this.componentesPC.addAll(componentes);
         return this.componentesPC;
     }
-/*    private ArrayList<Componente> addAllComponents (){
-        this.componentesPC = addComponente(memoriaGrafica,placaBase,procesador);
-        this.componentesPC = addArrayComponente(discoDuro);
-        this.componentesPC = addArrayComponente(ram);
-        return this.componentesPC;
-    }*/
     @Override
     public abstract String toString();
     protected abstract float obtenerPrecioTotal();
-    //public float sumaPrecioFinal(){};
 }
