@@ -81,6 +81,10 @@ public class Portatil extends PC implements accionesPC{
 
     @Override
     public boolean cambiarPieza(int componenteACambiar, Componente nuevoComponente) {
-        return true;
+        if(this.componentesPC.get(componenteACambiar).getClass()==nuevoComponente.getClass()){
+            this.componentesPC.set(componenteACambiar, nuevoComponente);
+            return true;
+        }
+        return false;
     }
 }
