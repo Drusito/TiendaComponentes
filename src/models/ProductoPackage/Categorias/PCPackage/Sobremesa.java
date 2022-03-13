@@ -62,12 +62,12 @@ public class Sobremesa extends PC implements accionesPC{
     }
 
     @Override
-    public void cambiarPieza(Componente componenteCambiar) {
-        for (Componente componente : this.componentesPC){
-            if(componente.getClass()==componenteCambiar.getClass()){
-                componente = componenteCambiar;
-            }
+    public boolean cambiarPieza(int componenteACambiar, Componente nuevoComponente) {
+        if(this.componentesPC.get(componenteACambiar).getClass()==nuevoComponente.getClass()){
+            this.componentesPC.set(componenteACambiar, nuevoComponente);
+            return true;
         }
+        return false;
     }
 
 

@@ -20,14 +20,12 @@ public class Tienda {
     public static Tienda tienda = new Tienda();
 
     private final ArrayList<Producto> componentes;
-    private final ArrayList<Componente> componentesPc;
-    private final ArrayList<Portatil> portatiles;
-    private final ArrayList<Sobremesa> sobremesas;
+    private final ArrayList<Producto> portatiles;
+    private final ArrayList<Producto> sobremesas;
     private final ArrayList<Producto> perifericos;
 
     private Tienda() {
         this.componentes = new ArrayList<>();
-        this.componentesPc = new ArrayList<>();
         this.portatiles = new ArrayList<>();
         this.sobremesas = new ArrayList<>();
         this.perifericos = new ArrayList<>();
@@ -77,72 +75,79 @@ public class Tienda {
     }
 
     public ArrayList<Componente> initPortatil1(){
-        this.componentesPc.add(new DiscoDuro(35.90f,
+        ArrayList<Componente> auxComponentes = new ArrayList<>();
+        auxComponentes.add(new DiscoDuro(35.90f,
                 "Versátiles. Rápidos. Fiables. La unidad de disco duro más increíble que haya conocido.", "Seagate",
                 500, true, "Sata", 275));
-        this.componentesPc.add(new MemoriaGrafica(1348.73f,
+        auxComponentes.add(new MemoriaGrafica(1348.73f,
                 "Diseñada para brindar un rendimiento ultra alto, una resolución ultra alta y juegos visualmente impresionantes para todos. Estamos impulsando la próxima generación de juegos.",
                 "AMD", 12));
-        this.componentesPc.add(new PlacaBase(561.23f,
+        auxComponentes.add(new PlacaBase(561.23f,
                 "Ofrece ofrece controles exhaustivos de iluminación RGB, así como efectos para los LED integrados y las tiras LED que conectes a los conectores RGB de la placa.",
                 "Asus", 2, 2, 2, true, 2, 1, true, true));
-        this.componentesPc.add(new Procesador(299.90f,
+        auxComponentes.add(new Procesador(299.90f,
                 "Ofrece mejoras de rendimiento notables para conseguir una productividad mejorada y un entretenimiento impresionante",
                 "Intel", 16, 5.1f));
-        this.componentesPc.add(new RAM(76.15f,
+        auxComponentes.add(new RAM(76.15f,
                 "El disipador de calor, fabricado en aluminio puro, permite una disipación térmica más rápida; la placa impresa de ocho capas administra el calor y proporciona una capacidad superior para incrementar el overclocking.",
                 "Corsair", 16));
-        return this.componentesPc;
+        return auxComponentes;
     }
+
     public ArrayList<Componente> initPortatil2(){
-        this.componentesPc.add(new DiscoDuro(87.10f,
+        ArrayList<Componente> auxComponentes = new ArrayList<>();
+        auxComponentes.add(new DiscoDuro(87.10f,
                 "Es un solución para el almacenamiento sustancial que ofrece velocidades de lectura/escritura1 de hasta 2.100/1.700 MB/s, que entre triplica y cuadriplica la de los discos SSD basados en SATA",
                 "Kingston", 1000, true, "SSD", 1700));
-        this.componentesPc.add(new MemoriaGrafica(2199.94f,
+        auxComponentes.add(new MemoriaGrafica(2199.94f,
                 "Ofrecen el máximo rendimiento para jugadores y creadores. Con tecnología de Ampere, la arquitectura RTX de la segunda generación de NVIDIA, con nuevos núcleos RT y Tensor y multiprocesadores de streaming para los gráficos de trazado de rayos más realistas y las funciones de inteligencia artificial más innovadoras.",
                 "Nvidia", 12));
-        this.componentesPc.add(new PlacaBase(449.43f,
+        auxComponentes.add(new PlacaBase(449.43f,
                 "Ofrece suministro de energía y enfriamiento de primera calidad para liberar toda la fuerza de los procesadores Intel® Core ™ de 12.ª generación.",
                 "Asus", 4, 4, 2, true, 2, 1, true, true));
-        this.componentesPc.add(new Procesador(299.90f,
+        auxComponentes.add(new Procesador(299.90f,
                 "Ofrece mejoras de rendimiento notables para conseguir una productividad mejorada y un entretenimiento impresionante",
                 "Intel", 16, 5.1f));
-        this.componentesPc.add(new Procesador(669.89f, "Un procesador que permite jugar así como crear.", "AMD", 16, 3.4f));
-        return this.componentesPc;
+        auxComponentes.add(new Procesador(669.89f, "Un procesador que permite jugar así como crear.", "AMD", 16, 3.4f));
+        return auxComponentes;
     }
+
     public ArrayList<Componente> initSobremesa1(){
-        this.componentesPc.add(new DiscoDuro(35.90f,
+        ArrayList<Componente> auxComponentes = new ArrayList<>();
+        auxComponentes.add(new DiscoDuro(35.90f,
                 "Versátiles. Rápidos. Fiables. La unidad de disco duro más increíble que haya conocido.", "Seagate",
                 500, true, "Sata", 275));
-        this.componentesPc.add(new MemoriaGrafica(1348.73f,
+        auxComponentes.add(new MemoriaGrafica(1348.73f,
                 "Diseñada para brindar un rendimiento ultra alto, una resolución ultra alta y juegos visualmente impresionantes para todos. Estamos impulsando la próxima generación de juegos.",
                 "AMD", 12));
-        this.componentesPc.add(new PlacaBase(561.23f,
+        auxComponentes.add(new PlacaBase(561.23f,
                 "Ofrece ofrece controles exhaustivos de iluminación RGB, así como efectos para los LED integrados y las tiras LED que conectes a los conectores RGB de la placa.",
                 "Asus", 2, 2, 2, true, 2, 1, true, true));
-        this.componentesPc.add(new Procesador(299.90f,
+        auxComponentes.add(new Procesador(299.90f,
                 "Ofrece mejoras de rendimiento notables para conseguir una productividad mejorada y un entretenimiento impresionante",
                 "Intel", 16, 5.1f));
-        this.componentesPc.add(new RAM(76.15f,
+        auxComponentes.add(new RAM(76.15f,
                 "El disipador de calor, fabricado en aluminio puro, permite una disipación térmica más rápida; la placa impresa de ocho capas administra el calor y proporciona una capacidad superior para incrementar el overclocking.",
                 "Corsair", 16));
-        return this.componentesPc;
+        return auxComponentes;
     }
+
     public ArrayList<Componente> initSobremesa2(){
-        this.componentesPc.add(new DiscoDuro(87.10f,
+        ArrayList<Componente> auxComponentes = new ArrayList<>();
+        auxComponentes.add(new DiscoDuro(87.10f,
                 "Es un solución para el almacenamiento sustancial que ofrece velocidades de lectura/escritura1 de hasta 2.100/1.700 MB/s, que entre triplica y cuadriplica la de los discos SSD basados en SATA",
                 "Kingston", 1000, true, "SSD", 1700));
-        this.componentesPc.add(new MemoriaGrafica(2199.94f,
+        auxComponentes.add(new MemoriaGrafica(2199.94f,
                 "Ofrecen el máximo rendimiento para jugadores y creadores. Con tecnología de Ampere, la arquitectura RTX de la segunda generación de NVIDIA, con nuevos núcleos RT y Tensor y multiprocesadores de streaming para los gráficos de trazado de rayos más realistas y las funciones de inteligencia artificial más innovadoras.",
                 "Nvidia", 12));
-        this.componentesPc.add(new PlacaBase(449.43f,
+        auxComponentes.add(new PlacaBase(449.43f,
                 "Ofrece suministro de energía y enfriamiento de primera calidad para liberar toda la fuerza de los procesadores Intel® Core ™ de 12.ª generación.",
                 "Asus", 4, 4, 2, true, 2, 1, true, true));
-        this.componentesPc.add(new Procesador(299.90f,
+        auxComponentes.add(new Procesador(299.90f,
                 "Ofrece mejoras de rendimiento notables para conseguir una productividad mejorada y un entretenimiento impresionante",
                 "Intel", 16, 5.1f));
-        this.componentesPc.add(new Procesador(669.89f, "Un procesador que permite jugar así como crear.", "AMD", 16, 3.4f));
-        return this.componentesPc;
+        auxComponentes.add(new Procesador(669.89f, "Un procesador que permite jugar así como crear.", "AMD", 16, 3.4f));
+        return auxComponentes;
     }
 
     public void initPerifericos() {
@@ -177,11 +182,11 @@ public class Tienda {
         return this.perifericos;
     }
 
-    public ArrayList<Portatil> getPortatiles() {
+    public ArrayList<Producto> getPortatiles() {
         return portatiles;
     }
 
-    public ArrayList<Sobremesa> getSobremesas() {
+    public ArrayList<Producto> getSobremesas() {
         return sobremesas;
     }
 
