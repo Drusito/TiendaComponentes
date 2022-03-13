@@ -9,6 +9,16 @@ public class DiscoDuro extends Componente {
     private String tipo;
     private float velocidadEscritura;
 
+    /**
+     * Constructor
+     * @param precio
+     * @param descripcion
+     * @param marca
+     * @param memoriaGB
+     * @param esPortatil
+     * @param tipo
+     * @param velocidadEscritura
+     */
     public DiscoDuro(float precio, String descripcion, String marca, float memoriaGB, boolean esPortatil, String tipo, float velocidadEscritura) {
         super(precio, descripcion, marca);
         this.memoriaGB = memoriaGB;
